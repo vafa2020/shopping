@@ -9,7 +9,6 @@ import {FaCheckCircle} from 'react-icons/fa';
 import ServicesUs from "../../Components/ServicesUs/ServicesUs";
 import DiscountProduct from "../../Components/DiscountProduct/DiscountProduct";
 import CardViewProduct from "../../Components/CardViewProduct/CardViewProduct";
-import Test from "../../Components/Test";
 
 
 export default function Splash() {
@@ -68,7 +67,6 @@ export default function Splash() {
     ]
     return (
             <BasicLayout>
-                <Test/>
                 <div className={classes.Splash}>
                     <div className={classes.SectionOne}>
                         <div className={classes.Description}>

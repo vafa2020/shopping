@@ -15,7 +15,6 @@ export default function Product() {
     let {category} = useParams();
     let [data, setData] = useState([]);
     useEffect(() => {
-        console.log(stateManager.products)
         setData(Category(category,stateManager.products));
     }, [category,stateManager]);
 
