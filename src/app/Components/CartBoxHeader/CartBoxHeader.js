@@ -9,7 +9,7 @@ export default function CartBoxHeader() {
     return (
         <div className={classes.CartBoxHeader}>
             <div className={classes.CartCount}>
-                {stateManager.cartProducts.length}
+                {stateManager.cartProducts?.length}
             </div>
             <div className={classes.IconCart}>
                 <GiShoppingCart/>

@@ -29,7 +29,7 @@ export default function Product() {
                     <div className={'col-md-9'}>
                         <div className={'row'}>
                             {
-                                data.map((item, index) => (
+                                data?.map((item, index) => (
                                     <div key={index} className={'col-md-4 col-xs-12'}>
                                         <ProductList data={item}/>
                                     </div>

@@ -21,9 +21,9 @@ export default function ProductDetails() {
         setStateManager(
             {
                 ...stateManager,
-                cartCount: ++stateManager.cartCount,
+                //cartCount: ++stateManager.cartCount,
                 cartProducts: [
-                    ...stateManager.cartProducts,
+                    ...stateManager?.cartProducts,
                     {
                         id: +id,
                         qty: 1
