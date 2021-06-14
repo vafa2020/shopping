@@ -21,14 +21,14 @@ export default function CartBox() {
 
     }
     useEffect(() => {
-        setData(stateManager.cartProducts.map(cp=>stateManager.products.find(p=>p.id===cp.id)))
+        setData(stateManager.cartProducts?.map(cp=>stateManager.products.find(p=>p.id===cp.id)))
     }, [stateManager])
 
     return (
         <BasicLayout>
             <div className={classes.Container}>
                 {
-                    data.map((item, index) => (
+                    data?.map((item, index) => (
                             <div key={index} className={classes.Product}>
                                     <img className={classes.Image} src={item.source} alt=""/>
                                 <div className={classes.Body}>

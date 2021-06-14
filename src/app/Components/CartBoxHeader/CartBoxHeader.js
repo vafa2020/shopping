@@ -4,12 +4,12 @@ import {useContext} from "react";
 import {StateManagement} from "../../utils/StateManagment";
 
 export default function CartBoxHeader() {
-    const {stateManager, setStateManager} = useContext(StateManagement)
+    const {stateManager} = useContext(StateManagement)
 
     return (
         <div className={classes.CartBoxHeader}>
             <div className={classes.CartCount}>
-                {stateManager.cartProducts.length}
+                {stateManager.cartProducts?.length}
             </div>
             <div className={classes.IconCart}>
                 <GiShoppingCart/>

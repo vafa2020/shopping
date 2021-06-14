@@ -11,7 +11,7 @@ import {StateManagement} from "../../utils/StateManagment";
 
 
 export default function Product() {
-    const {stateManager, setStateManager} = useContext(StateManagement)
+    const {stateManager} = useContext(StateManagement)
     let {category} = useParams();
     let [data, setData] = useState([]);
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function Product() {
                     <div className={'col-md-9'}>
                         <div className={'row'}>
                             {
-                                data.map((item, index) => (
+                                data?.map((item, index) => (
                                     <div key={index} className={'col-md-4 col-xs-12'}>
                                         <ProductList data={item}/>
                                     </div>

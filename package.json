@@ -2,6 +2,7 @@
   "name": "shopvafaee",
   "homepage": "https://mv8.ir/demo/",
   "version": "0.1.0",
+  "homepage":".",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",

@@ -14,7 +14,7 @@ const Category = (category,ProductDataList) => {
         data = ProductDataList
     } else {
         const categoryItem = CategoryData.find(x => x.latinTitle === category)
-        data = ProductDataList.filter(x => x.categoryId === categoryItem.id)
+        data = ProductDataList?.filter(x => x.categoryId === categoryItem.id)
     }
     return data
 }
