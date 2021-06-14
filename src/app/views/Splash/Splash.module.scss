@@ -1,0 +1,121 @@
+@import "src/app/static/style/basic";
+
+.Splash {
+
+  .SectionOne {
+    margin-top: 20px;
+    padding: 10px 30px 10px 0;
+    display: flex;
+    background-color: $color-light;
+    width: 100%;
+    height: 500px;
+    border-radius: $dimen-rounded-low;
+
+    .BoxImage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+
+
+      .Image {
+        height: 400px;
+      }
+    }
+
+    .Description {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .Title {
+        margin-top: -20px;
+        color: $color-deep-orange;
+
+      }
+
+      .Paragraph {
+        text-align: justify;
+        font-size: 1.2rem;
+        line-height: 30px;
+      }
+
+      .Button {
+        border: none;
+        background-color: $color-dark;
+        color: $color-light;
+        padding: 15px 20px;
+        cursor: pointer;
+        border-radius: $dimen-rounded-low;
+      }
+    }
+
+  }
+
+  .SectionTwo {
+
+  }
+
+  .SectionThree {
+
+  }
+
+  .SectionFour {
+
+  }
+
+  .SectionFive {
+    display: flex;
+    background-color: $color-light;
+    width: 100%;
+    height: 500px;
+    margin: 20px 0;
+    border-radius: $dimen-rounded-low;
+    overflow: hidden;
+
+    .BoxImage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+
+
+      .Image {
+        height: 400px;
+      }
+    }
+
+    .Description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      padding: 0 50px;
+      background-color: $color-accent;
+
+      .Title {
+        color: $color-deep-orange;
+
+      }
+
+      .Paragraph {
+        text-align: justify;
+        font-size: 1.2rem;
+        line-height: 30px;
+      }
+
+      .Button {
+        border: none;
+        background-color: $color-dark;
+        color: $color-light;
+        padding: 15px 20px;
+        cursor: pointer;
+        border-radius: $dimen-rounded-low;
+      }
+    }
+
+  }
+}

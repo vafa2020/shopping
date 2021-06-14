@@ -1,0 +1,25 @@
+@import './utils/index';
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+:root {
+  font-size: $dimen-font-size;
+}
+
+html, body {
+  @extend %FontFamily;
+  direction: rtl;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+}

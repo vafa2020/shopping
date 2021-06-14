@@ -1,0 +1,94 @@
+@import "src/app/static/style/basic";
+
+.CartBox {
+}
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 50px;
+  width: 100%;
+  background: $color-light;
+  box-shadow: rgba($color-dark, 0.3) 0 10px 20px 0;
+  border-radius: $dimen-rounded-low;
+  position: relative;
+
+  .Product {
+    border: 1px solid #f5f5f5;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .Trash {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: darken($color-yellow, 30);
+  }
+
+  .Image {
+    height: 150px;
+  }
+
+
+  .Body {
+flex-grow: 1;
+
+    .Title {
+      padding: 5px;
+      border-radius: $dimen-rounded-low;
+      color: $color-green;
+      font-size: 2rem;
+    }
+
+    .BoxPrice {
+      .Price {
+        border-radius: $dimen-rounded-low;
+        padding: 5px;
+        margin-right: 10px;
+        color: $color-dark;
+        font-size: 1.5rem;
+      }
+
+      .Text {
+        font-size: 1.2rem;
+        border-radius: $dimen-rounded-low;
+        color: $color-green;
+        padding: 5px;
+      }
+
+    }
+
+    .BoxColor {
+      display: flex;
+      align-items: center;
+
+      .Color {
+        text-align: center;
+        border-radius: $dimen-rounded-high;
+        display: inline-block;
+        padding: 5px;
+        margin-right: 10px;
+        width: 30px;
+        height: 30px;
+        font-size: 1.5rem;
+      }
+
+      .Text {
+        font-size: 1.2rem;
+        border-radius: $dimen-rounded-low;
+        text-align: center;
+        display: inline-block;
+        color: $color-green;
+        padding: 5px;
+        width: 70px;
+      }
+    }
+
+
+  }
+
+}

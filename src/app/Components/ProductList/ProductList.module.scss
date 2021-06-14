@@ -1,0 +1,80 @@
+@import "src/app/static/style/basic";
+
+.ProductList {
+  height: 350px;
+  width: 100%;
+  background-color: $color-light;
+  margin: 20px 0;
+  border-radius: $dimen-rounded-low;
+
+  .Header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .ImageBox {
+      margin-top: 30px;
+
+      .Image {
+        height: 150px;
+      }
+    }
+
+    .Control {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      display: flex;
+      align-items: center;
+
+      .Like {
+        border: none;
+        background-color: transparent;
+        font-size: 1.5rem;
+      }
+
+      .Bookmark {
+        font-size: 1.5rem;
+        border: none;
+        background-color: transparent;
+      }
+    }
+  }
+
+  .Body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+
+    .Title {
+
+    }
+
+    .Rating {
+      margin-top: 10px;
+    }
+
+    .Price {
+      margin-top: -20px;
+
+    }
+
+    .button {
+      margin-top: 20px;
+      border-radius: $dimen-rounded-low;
+      width: 200px;
+      padding: 10px;
+      border: 1px solid $color-deep-orange;
+      background-color: transparent;
+      color: $color-deep-orange;
+
+      &:hover {
+        background-color: $color-deep-orange;
+        color: $color-light;
+      }
+
+    }
+  }
+}

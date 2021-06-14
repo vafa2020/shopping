@@ -1,0 +1,129 @@
+@import "src/app/static/style/basic";
+
+.Filter {
+  padding-top: 20px;
+
+  .FilterSort {
+    height: 120px;
+    border-bottom: 3px solid $color-light;
+
+    .Title {
+      background-color: $color-grey;
+      border-radius: $dimen-rounded-low;
+      color: $color-light;
+      padding: 10px;
+    }
+
+    .body {
+      .Label {
+        margin: -5px 0 10px 0;
+        display: block;
+        color: lighten($color-dark, 20);
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      .Select {
+        width: 100%;
+        border-radius: $dimen-rounded-low;
+        padding: 5px;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px 0;
+      }
+    }
+
+  }
+  .FilterColor {
+    height: 120px;
+    border-bottom: 3px solid $color-light;
+
+    .Title {
+      background-color: $color-grey;
+      border-radius: $dimen-rounded-low;
+      color: $color-light;
+      padding: 10px;
+    }
+
+    .body {
+      .Label {
+        margin: -5px 0 10px 0;
+        display: block;
+        color: lighten($color-dark, 20);
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      .Select {
+        width: 100%;
+        border-radius: $dimen-rounded-low;
+        padding: 5px;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px 0;
+      }
+    }
+
+  }
+  .FilterPrice {
+    height: 200px;
+
+    .Title {
+      background-color: $color-grey;
+      border-radius: $dimen-rounded-low;
+      color: $color-light;
+      padding: 10px;
+    }
+
+    .body {
+      .Label {
+        padding: 5px;
+        display: block;
+        color: lighten($color-dark, 20);
+        font-size: 1rem;
+        font-weight: bold;
+      }
+      .InputPrice{
+        margin: 10px 0;
+        .Input{
+          width: 100%;
+          border-radius: $dimen-rounded-low;
+          padding: 10px;
+          border: none;
+          box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px 0;
+        }
+      }
+
+    }
+
+  }
+  .FilterModel {
+    height: 120px;
+    border-bottom: 3px solid $color-light;
+
+    .Title {
+      background-color: $color-grey;
+      border-radius: $dimen-rounded-low;
+      color: $color-light;
+      padding: 10px;
+    }
+
+    .body {
+      .Label {
+        margin: -5px 0 10px 0;
+        display: block;
+        color: lighten($color-dark, 20);
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      .Select {
+        width: 100%;
+        border-radius: $dimen-rounded-low;
+        padding: 5px;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px 0;
+      }
+    }
+
+  }
+
+}

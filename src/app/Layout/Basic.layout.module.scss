@@ -1,0 +1,32 @@
+@import "src/app/static/style/basic";
+
+.BasicLayout {
+
+  background-color:$color-secondary;
+  .Header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 0 5px 0;
+    padding: 5px 350px 5px 400px;
+    background-color: $color-light;
+
+    .BoxLogo {
+      .Logo {
+        cursor: pointer;
+        height: 50px;
+      }
+    }
+
+  }
+
+  .Main {
+
+  }
+
+  .Footer {
+
+  }
+
+}

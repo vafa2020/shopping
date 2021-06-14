@@ -1,0 +1,61 @@
+@import "src/app/static/style/basic";
+
+.Footer {
+  .TopFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lighten($color-grey, 30);
+    height: 200px;
+
+    .Title {
+      margin-top: -10px;
+    }
+
+    .SubTitle {
+
+    }
+
+    .BoxSearch {
+      margin-top: 15px;
+      border-radius: $dimen-rounded-low;
+      overflow: hidden;
+
+      .Search {
+        width: 400px;
+        padding: 10px;
+        border: none;
+      }
+
+      .Button {
+        padding: 10px;
+        border: none;
+        background-color: $color-dark;
+        color: $color-light;
+
+        &:hover {
+          background-color: $color-orange;
+        }
+      }
+    }
+
+  }
+
+  .MiddleFooter {
+    height: 300px;
+    background-color: $color-dark;
+  }
+
+  .bottomFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: lighten($color-dark, 5);
+
+    .Author {
+      color: $color-light;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@import "src/app/static/style/basic";
+
+.ServicesUs{
+  padding: 10px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: $color-light;
+  border-radius: $dimen-rounded-low;
+
+  .Icon{
+
+font-size:5rem;
+    color: $color-orange;
+
+  }
+  .Title{
+margin-top: -5px;
+  }
+  .Paragraph{
+margin-top: -3px;
+    color: lighten($color-dark,50);
+  }
+}

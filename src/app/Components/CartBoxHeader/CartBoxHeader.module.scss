@@ -1,0 +1,23 @@
+@import "src/app/static/style/basic";
+
+.CartBoxHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  right: 870px;
+  width: 70px;
+  padding: 2px 10px;
+  border-radius: $dimen-rounded-low;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px 0;
+
+  .IconCart {
+    font-size: 1.8rem;
+    color: $color-yellow;
+  }
+
+  .CartCount {
+    font-size: 1.5rem;
+    color: $color-yellow;
+  }
+}

@@ -1,0 +1,23 @@
+@import "src/app/static/style/basic";
+
+.Navigation {
+
+  .Items {
+    display: flex;
+
+    .Item {
+      list-style: none;
+      padding-left: 30px;
+
+
+      .Link {
+        font-size: 1.2rem;
+        color: $color-dark;
+        text-decoration: none;
+        &:hover{
+          color: $color-red;
+        }
+      }
+    }
+  }
+}

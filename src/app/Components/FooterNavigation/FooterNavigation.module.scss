@@ -1,0 +1,42 @@
+@import "src/app/static/style/basic";
+
+.FooterNavigation {
+  display: flex;
+  text-align: center;
+
+  .Navigation {
+    text-align: center;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+
+
+    .Items {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .Title {
+        font-weight: bold;
+        color: $color-light;
+      }
+      .Item {
+        list-style: none;
+        padding: 10px;
+
+        .Link {
+          text-decoration: none;
+          color: $color-grey;
+          font-size: 1.2rem;
+
+          &:hover {
+            color: $color-light;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@import "src/app/static/style/basic";
+
+.CardViewProduct {
+  text-align: center;
+  margin-top: 20px;
+  background-color: $color-light;
+  height: 300px;
+  padding: 10px;
+  border-radius: $dimen-rounded-low;
+
+  .ImageBox {
+    .Image {
+      height: 150px;
+    }
+  }
+
+  .Description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .Title {
+
+    }
+
+    .Price {
+      color: $color-orange;
+    }
+
+    .Button {
+      margin-top: 10px;
+      width: 250px;
+      background-color: $color-dark;
+      color: $color-light;
+      border-radius: $dimen-rounded-low;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-orange;
+      }
+    }
+  }
+
+}
