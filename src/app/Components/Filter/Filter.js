@@ -26,9 +26,9 @@ export default function Filter() {
 
         const sortData = ProductDataList.sort(compare);
 
-        const colorData = color ? sortData.filter(p => p.color == color) : sortData;
+        const colorData = color ? sortData.filter(p => p.color === color) : sortData;
 
-        const brandData = brand ? colorData.filter(p => p.model == brand) : colorData;
+        const brandData = brand ? colorData.filter(p => p.model === brand) : colorData;
 
         let priceData = fromPrice.current.value ? brandData.filter(x => x.price >= fromPrice.current.value) : brandData;
         priceData = toPrice.current.value ? brandData.filter(x => x.price <= toPrice.current.value) : priceData;
@@ -44,7 +44,7 @@ export default function Filter() {
 
     useEffect(() => {
         applyFilter();
-    }, [type, color, brand, fromPrice, toPrice]);
+    }, []);
 
 
     return (

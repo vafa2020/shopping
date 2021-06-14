@@ -11,7 +11,7 @@ import {StateManagement} from "../../utils/StateManagment";
 
 
 export default function Product() {
-    const {stateManager, setStateManager} = useContext(StateManagement)
+    const {stateManager} = useContext(StateManagement)
     let {category} = useParams();
     let [data, setData] = useState([]);
     useEffect(() => {

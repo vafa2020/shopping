@@ -4,7 +4,7 @@ import {useContext} from "react";
 import {StateManagement} from "../../utils/StateManagment";
 
 export default function CartBoxHeader() {
-    const {stateManager, setStateManager} = useContext(StateManagement)
+    const {stateManager} = useContext(StateManagement)
 
     return (
         <div className={classes.CartBoxHeader}>
