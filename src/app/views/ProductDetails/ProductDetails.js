@@ -1,34 +1,53 @@
+import {StateManagement} from "../../utils/StateManagment";
 import classes from './ProductDetails.module.scss'
 import BasicLayout from "../../Layout/Basic.layout";
 import {useContext, useEffect, useState} from "react";
 import {getProducts} from "../../servics/Product.services";
 import {useParams} from "react-router-dom";
 import {Helper} from "scriptpack";
-import {StateManagement} from "../../utils/StateManagment";
 import {GiShoppingCart} from "react-icons/gi";
 import {Constants} from "../../values/Constants";
+import {AiOutlineMinus, AiOutlinePlus} from "react-icons/all";
 
 
 export default function ProductDetails() {
+    const {stateManager, setStateManager} = useContext(StateManagement)
     const [data, setData] = useState({})
+    // const [plus, setPlus] = useState();
+    // const [minus, setMinus] = useState()
     let {id} = useParams()
     useEffect(() => {
         setData(getProducts(id));
+
     }, [id])
-    const {stateManager, setStateManager} = useContext(StateManagement)
-    const AddToCart = (id) => {
+    const Plus = () => {
 
         setStateManager(
             {
                 ...stateManager,
-                //cartCount: ++stateManager.cartCount,
+                quantity: ++stateManager.quantity
+
+            }
+        )
+    }
+    const Minus = () => {
+        setStateManager({
+            ...stateManager,
+            quantity: --stateManager.quantity
+        })
+    }
+    const AddToCart = (id) => {
+        setStateManager(
+            {
+                ...stateManager,
                 cartProducts: [
                     ...stateManager?.cartProducts,
                     {
                         id: +id,
                         qty: 1
                     }
-                ]
+                ],
+                quantity: ++stateManager.quantity
             }
         )
     }
@@ -49,13 +68,21 @@ export default function ProductDetails() {
                         <span className={classes.Text}>رنگ</span>
                         <span className={classes.Color}>{data.color}</span>
                     </p>
-                    <div className={classes.Control}>
-                        <button className={classes.AddToCart} onClick={() => AddToCart(data.id)}>
-                            <span className={classes.IconCart}> <GiShoppingCart/></span>
-                            <span className={classes.TextCart}>{Constants.AddToCart}</span>
-                        </button>
-
-                    </div>
+                    {
+                        (stateManager.quantity === 0) ?
+                            <div className={classes.Control}>
+                                 <button className={classes.AddToCart} onClick={() => AddToCart(data.id)}>
+                                    <span className={classes.IconCart}><GiShoppingCart/></span>
+                                    <span className={classes.TextCart}>{Constants.AddToCart}</span>
+                                </button>
+                            </div>
+                            :
+                            <div className={classes.PlusMines}>
+                                <button className={classes.Plus} onClick={Plus}><AiOutlinePlus/></button>
+                                <span className={classes.Quantity}>{stateManager.quantity}</span>
+                                <button className={classes.Mines} onClick={Minus}><AiOutlineMinus/></button>
+                            </div>
+                    }
                 </div>
             </div>
 

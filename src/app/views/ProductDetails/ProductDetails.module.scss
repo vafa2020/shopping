@@ -32,8 +32,8 @@
       padding: 5px;
       box-shadow: rgba($color-dark, 0.3) 0 5px 15px 0;
       border-radius: $dimen-rounded-low;
-      color: $color-yellow;
-      font-size: 2rem;
+      color: $color-green;
+      font-size: 1.8rem;
     }
 
     .BoxPrice {
@@ -47,7 +47,7 @@
         padding: 5px;
         margin-right: 10px;
         width: 100px;
-        color: $color-dark;
+        color: lighten($color-dark,30);
         font-size: 1.5rem;
         box-shadow: rgba($color-dark, 0.3) 0 5px 15px 0;
       }
@@ -57,7 +57,7 @@
         border-radius: $dimen-rounded-low;
         text-align: center;
         display: inline-block;
-        color: $color-yellow;
+        color: $color-green;
         padding: 5px;
         box-shadow: rgba($color-dark, 0.3) 0 5px 15px 0;
         width: 70px;
@@ -73,7 +73,7 @@
         padding: 5px;
         margin-right: 10px;
         width: 100px;
-        color: $color-dark;
+        color: lighten($color-dark,30);
         font-size: 1.5rem;
         box-shadow: rgba($color-dark, 0.3) 0 5px 15px 0;
       }
@@ -83,7 +83,7 @@
         border-radius: $dimen-rounded-low;
         text-align: center;
         display: inline-block;
-        color: $color-yellow;
+        color: $color-green;
         padding: 5px;
         box-shadow: rgba($color-dark, 0.3) 0 5px 15px 0;
         width: 70px;
@@ -94,7 +94,7 @@
       .AddToCart {
         padding: 10px;
         text-align: center;
-        color: $color-yellow;
+        color: $color-green;
         width: 90%;
         border: none;
         background-color: transparent;
@@ -128,54 +128,49 @@
           font-size: 1.2rem;
         }
       }
+    }
+    .PlusMines {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      height: 50px;
+      width: 90%;
+      text-align: center;
 
-      .PlusMines {
+      .Plus {
         display: flex;
-        align-items: center;
         justify-content: center;
-        margin-top: 10px;
-        height: 50px;
-        width: 90%;
-        text-align: center;
+        padding:10px ;
+        cursor: pointer;
+        border: none;
+        width: 100px;
+        border-radius: $dimen-rounded-low;
+        font-size: 1.5rem;
+        color: $color-green;
+        background-color: transparent;
+        box-shadow: rgba($color-dark, 0.3) 0 5px 10px 0;
 
-        .Plus {
-          cursor: pointer;
-          border: none;
-          border-radius: $dimen-rounded-low;
-          padding: 5px;
-          width: 100px;
-          color: $color-yellow;
-          font-weight: bold;
-          background-color: transparent;
-          box-shadow: rgba($color-dark, 0.3) 0 5px 10px 0;
-
-          .IconPlus {
-            font-size: 1.5rem;
-          }
-        }
-
-        .Quantity {
-          width: 50px;
-          font-size: 1.5rem;
-        }
-
-        .Mines {
-          border: none;
-          cursor: pointer;
-          border-radius: $dimen-rounded-low;
-          padding: 5px;
-          width: 100px;
-          color: $color-yellow;
-          font-weight: bold;
-          font-size: 1.5rem;
-          background-color: transparent;
-          box-shadow: rgba($color-dark, 0.3) 0 5px 10px 0;
-          .IconMines {
-            font-size: 1.5rem;
-          }
-        }
       }
 
+      .Quantity {
+        width: 50px;
+        font-size: 1.5rem;
+      }
+
+      .Mines {
+        display: flex;
+        justify-content: center;
+        padding:10px ;
+        cursor: pointer;
+        border: none;
+        width: 100px;
+        border-radius: $dimen-rounded-low;
+        font-size: 1.5rem;
+        color: $color-green;
+        background-color: transparent;
+        box-shadow: rgba($color-dark, 0.3) 0 5px 10px 0;
+      }
     }
   }
 }

@@ -34,7 +34,6 @@ export default function Filter() {
         priceData = toPrice.current.value ? brandData.filter(x => x.price <= toPrice.current.value) : priceData;
 
         const data = priceData;
-        console.log(data)
         setStateManager({
             ...stateManager,
             products: data

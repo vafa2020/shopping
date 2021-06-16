@@ -9,6 +9,9 @@ import {StateManagement} from "../../utils/StateManagment";
 export default function CartBox() {
     const {stateManager, setStateManager} = useContext(StateManagement)
     const [data, setData] = useState([]);
+    useEffect(() => {
+        setData(stateManager.cartProducts?.map(cp=>stateManager.products.find(p=>p.id===cp.id)))
+    }, [stateManager])
 
     const Trash = (Id) => {
         const cartProducts = [...stateManager.cartProducts.filter(cp=>cp.id!==Id)];
@@ -16,13 +19,7 @@ export default function CartBox() {
                 ...stateManager,
                 cartProducts
             })
-
-        
-
     }
-    useEffect(() => {
-        setData(stateManager.cartProducts?.map(cp=>stateManager.products.find(p=>p.id===cp.id)))
-    }, [stateManager])
 
     return (
         <BasicLayout>
