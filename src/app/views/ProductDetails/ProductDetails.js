@@ -20,13 +20,21 @@ export default function ProductDetails() {
         setData(getProducts(id));
 
     }, [id])
-    const Plus = () => {
-
+    const Plus = (Id) => {
         setStateManager(
             {
                 ...stateManager,
-                quantity: ++stateManager.quantity
-
+                quantity: ++stateManager.quantity,
+                cartProducts: [
+                    // ...stateManager.cartProducts,
+                    ...stateManager.cartProducts.map((item, index) => {
+                        if (item.id === Id) {
+                            item.qty += 1
+                            console.log(item)
+                        }
+                        return item;
+                    })
+                ],
             }
         )
     }
@@ -40,14 +48,15 @@ export default function ProductDetails() {
         setStateManager(
             {
                 ...stateManager,
+                quantity: ++stateManager.quantity,
                 cartProducts: [
                     ...stateManager?.cartProducts,
                     {
                         id: +id,
-                        qty: 1
+                        qty: stateManager.quantity
                     }
-                ],
-                quantity: ++stateManager.quantity
+                ]
+
             }
         )
     }
@@ -71,14 +80,16 @@ export default function ProductDetails() {
                     {
                         (stateManager.quantity === 0) ?
                             <div className={classes.Control}>
-                                 <button className={classes.AddToCart} onClick={() => AddToCart(data.id)}>
+                                <button className={classes.AddToCart} onClick={() => AddToCart(data.id)}>
                                     <span className={classes.IconCart}><GiShoppingCart/></span>
                                     <span className={classes.TextCart}>{Constants.AddToCart}</span>
                                 </button>
                             </div>
                             :
                             <div className={classes.PlusMines}>
-                                <button className={classes.Plus} onClick={Plus}><AiOutlinePlus/></button>
+                                <button className={classes.Plus} onClick={() => {
+                                    Plus(data.id)
+                                }}><AiOutlinePlus/></button>
                                 <span className={classes.Quantity}>{stateManager.quantity}</span>
                                 <button className={classes.Mines} onClick={Minus}><AiOutlineMinus/></button>
                             </div>
