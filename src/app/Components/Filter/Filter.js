@@ -1,5 +1,5 @@
 import classes from './Filter.module.scss'
-import {useContext, useEffect, useRef, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {StateManagement} from "../../utils/StateManagment";
 import {ProductDataList} from "../../data/Product.data";
 
@@ -8,10 +8,8 @@ export default function Filter() {
     const [type, setType] = useState();
     const [color, setColor] = useState();
     const [brand, setBrand] = useState();
-    const fromPrice = useRef();
-    const toPrice = useRef();
-
-    const applyFilter = ()=>{
+    const [range, setRange] = useState();
+    const applyFilter = (type, color, brand, range) => {
         function compare(a, b) {
             if (type === 0) return 0;
 
@@ -25,25 +23,19 @@ export default function Filter() {
         }
 
         const sortData = ProductDataList.sort(compare);
-
         const colorData = color ? sortData.filter(p => p.color === color) : sortData;
-
         const brandData = brand ? colorData.filter(p => p.model === brand) : colorData;
-
-        let priceData = fromPrice.current.value ? brandData.filter(x => x.price >= fromPrice.current.value) : brandData;
-        priceData = toPrice.current.value ? brandData.filter(x => x.price <= toPrice.current.value) : priceData;
-
-        const data = priceData;
+        const rangeData = range ? brandData.filter(p => p.price >= range) : brandData
+        const data = rangeData;
         setStateManager({
             ...stateManager,
             products: data
         });
 
     }
-
-    useEffect(() => {
-        applyFilter();
-    }, []);
+    useEffect(()=>{
+        applyFilter(type, color, brand, range)
+    },[type, color, brand, range])
 
 
     return (
@@ -53,7 +45,7 @@ export default function Filter() {
                 <div className={classes.body}>
                     <label className={classes.Label} htmlFor="sortByPrice">مرتب سازی</label>
                     <select className={classes.Select} name="sortByPrice" id="sortByPrice" onChange={(e) => {
-                        setType(e.target.value)
+                        applyFilter(setType(e.target.value))
                     }}>
                         <option value="0">انتخاب کنید</option>
                         <option value="1">صعودی</option>
@@ -66,7 +58,7 @@ export default function Filter() {
                 <div className={classes.body}>
                     <label className={classes.Label} htmlFor="sortByPrice">مرتب سازی</label>
                     <select className={classes.Select} name="sortByPrice" id="sortByPrice" onChange={(e) => {
-                        setColor(e.target.value)
+                        applyFilter(setColor(e.target.value))
                     }}>
                         <option value="null">انتخاب کنید</option>
                         <option value="white">سفید</option>
@@ -87,7 +79,7 @@ export default function Filter() {
                 <div className={classes.body}>
                     <label className={classes.Label} htmlFor="sortByPrice">مرتب سازی</label>
                     <select className={classes.Select} name="sortByPrice" id="sortByPrice" onChange={(e) => {
-                        setBrand(e.target.value)
+                        applyFilter(setBrand(e.target.value))
                     }}>
                         <option value="null">انتخاب کنید</option>
                         <option value="acer">acer</option>
@@ -106,12 +98,14 @@ export default function Filter() {
                 <h3 className={classes.Title}>براساس قیمت</h3>
                 <div className={classes.body}>
                     <div className={classes.InputPrice}>
-                        <label htmlFor="filterFromPrice" className={classes.Label}>از قیمت</label>
-                        <input id="filterFromPrice" className={classes.Input} type="number" ref={fromPrice} onChange={applyFilter}/>
-                    </div>
-                    <div className={classes.InputPrice}>
-                        <label htmlFor="filterToPrice" className={classes.Label}>تا قیمت</label>
-                        <input id="filterToPrice" className={classes.Input} type="number" ref={toPrice} onChange={applyFilter}/>
+                        <input
+                            type="range"
+                            max={'70000000'}
+                            min={'1000000'}
+                            step={'500000'}
+                            onChange={(e) => {
+                                applyFilter(setRange(e.target.value))
+                            }}/>
                     </div>
                 </div>
             </div>

@@ -13,8 +13,6 @@ import {AiOutlineMinus, AiOutlinePlus} from "react-icons/all";
 export default function ProductDetails() {
     const {stateManager, setStateManager} = useContext(StateManagement)
     const [data, setData] = useState({})
-    // const [plus, setPlus] = useState();
-    // const [minus, setMinus] = useState()
     let {id} = useParams()
     useEffect(() => {
         setData(getProducts(id));
