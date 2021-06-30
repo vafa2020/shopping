@@ -11,11 +11,11 @@ const theme = createMuiTheme({
     palette: {
         primary: {
             // Purple and green play nicely together.
-            main: '#333',
+            main: '#E6EEFB',
         },
         secondary: {
             // This is green.A700 as hex.
-            main: '#E6EEFB',
+            main: '#FF5722',
         },
     },
     direction: 'rtl',

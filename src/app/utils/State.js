@@ -5,6 +5,6 @@ export const State = {
     cartCount:0,
     sortType:0,
     cartProducts:[],
-    quantity:0,
+    totalPrice:0,
     products: ProductDataList
 }

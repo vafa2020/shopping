@@ -23,6 +23,7 @@ import WatchSamsung02 from '../static/img/watch_samsung_02.jpg';
 import WatchSamsung03 from '../static/img/watch_samsung_03.jpg';
 import WatchHuawei01 from '../static/img/watch_huawei_01.jpg';
 import Logo from '../static/img/logo.png';
+import LogoLogin from '../static/img/logo_login.png';
 export {
     CameraCanon01,
     CameraCanon02,
@@ -48,5 +49,6 @@ export {
     WatchSamsung02,
     WatchSamsung03,
     WatchHuawei01,
-    Logo
+    Logo,
+    LogoLogin
 }

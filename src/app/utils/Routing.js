@@ -11,6 +11,7 @@ import ProductDetails from "../views/ProductDetails/ProductDetails";
 import {StateManagement} from "./StateManagment";
 import {State} from "./State";
 import CartBox from "../views/CartBox/CartBox";
+import Login from "../views/Login/Login";
 
 
 export default function Routing() {
@@ -23,6 +24,7 @@ export default function Routing() {
         <Router>
             <Switch>
                 <StateManagement.Provider value={{stateManager, setStateManager}}>
+                    <Route path="/login"><Login/></Route>
                     <Route path="/productDetails/:id"><ProductDetails/></Route>
                     <Route path="/product/:category"><Product/></Route>
                     <Route path="/cartBox"><CartBox/></Route>

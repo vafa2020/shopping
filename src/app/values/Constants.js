@@ -42,7 +42,11 @@ export const Constants = {
     ProductWarranty:'گارانتی کالا',
     ProductWarrantyDes:'کالای خود را با گارانتی معتبر دریافت کنید.',
     ViewItem:'نمایش محصول',
-    AddToCart:'افزودن به سبد'
+    AddToCart:'افزودن به سبد',
+    MemberLogin:'خوش آمدید',
+    Username:'نام کاربری',
+    Password:'رمز عبور',
+    Login:'ورود'
 
 
 
