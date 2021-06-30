@@ -22,13 +22,10 @@ export default function ProductDetails() {
         setStateManager(
             {
                 ...stateManager,
-                quantity: ++stateManager.quantity,
                 cartProducts: [
-                    // ...stateManager.cartProducts,
                     ...stateManager.cartProducts.map((item, index) => {
                         if (item.id === Id) {
                             item.qty += 1
-                            console.log(item)
                         }
                         return item;
                     })
@@ -46,7 +43,6 @@ export default function ProductDetails() {
         setStateManager(
             {
                 ...stateManager,
-                quantity: ++stateManager.quantity,
                 cartProducts: [
                     ...stateManager?.cartProducts,
                     {
@@ -76,7 +72,7 @@ export default function ProductDetails() {
                         <span className={classes.Color}>{data.color}</span>
                     </p>
                     {
-                        (stateManager.quantity === 0) ?
+                        (!cp) ?
                             <div className={classes.Control}>
                                 <button className={classes.AddToCart} onClick={() => AddToCart(data.id)}>
                                     <span className={classes.IconCart}><GiShoppingCart/></span>
