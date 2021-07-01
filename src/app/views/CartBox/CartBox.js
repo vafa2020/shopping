@@ -4,8 +4,8 @@ import {useContext, useEffect, useState} from "react";
 import {Helper} from "scriptpack";
 import {BsTrash} from "react-icons/all";
 import {StateManagement} from "../../utils/StateManagment";
-import {Link} from "@material-ui/core";
 import {CategoryData} from "../../data/Category.data";
+import {Link} from "react-router-dom";
 
 
 export default function CartBox() {
@@ -16,6 +16,7 @@ export default function CartBox() {
     }, [stateManager])
 
     const Cat = (ID) => {
+        console.log(ID)
      return  CategoryData.map(item=>{
            if (item.id===ID){
                const Item=item.latinTitle
@@ -38,8 +39,8 @@ export default function CartBox() {
                 {
                     data?.map((item, index) => (
                             <div key={index} className={classes.Product}>
-                                <Link to={`/product/${Cat(item.categoryId).join('')}`}>
-                                    <img className={classes.Image} src={item.source} alt=""/>
+                                <Link to={`/productDetails/${item.id}`}>
+                                    <img className={classes.Image} src={item.source} alt="" style={{cursor:'pointer'}}/>
                                 </Link>
                                 <div className={classes.Body}>
                                     <h2 className={classes.Title}>{item.title}</h2>

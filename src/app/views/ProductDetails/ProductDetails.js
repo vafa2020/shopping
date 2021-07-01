@@ -13,25 +13,32 @@ import {AiOutlineMinus, AiOutlinePlus} from "react-icons/all";
 export default function ProductDetails() {
     const {stateManager, setStateManager} = useContext(StateManagement)
     const [data, setData] = useState({})
-    const [Cp, setCp] = useState([])
+    const [Cp, setCp] = useState()
     let {id} = useParams()
     useEffect(() => {
-        QTY(id)
-    }, [id])
+        const cp = stateManager.cartProducts.find(cp => cp.id === +id)
+        setCp(cp);
+    }, [id, stateManager])
 
-    function QTY(Id) {
-        setCp(stateManager.cartProducts);
-        Cp.map((item) => {
-            if (item.id === +Id) {
-                setCp(item)
-                return item
-            }
-        })
-    }
 
     useEffect(() => {
         setData(getProducts(id));
     }, [id])
+    const AddToCart = (id) => {
+        setStateManager(
+            {
+                ...stateManager,
+                cartProducts: [
+                    ...stateManager?.cartProducts,
+                    {
+                        id: +id,
+                        qty: 1
+                    }
+                ]
+
+            }
+        )
+    }
     const Plus = (Id) => {
         setStateManager(
             {
@@ -51,32 +58,19 @@ export default function ProductDetails() {
         setStateManager(
             {
                 ...stateManager,
-                cartProducts: [
-                    ...stateManager.cartProducts.map((item) => {
+                cartProducts: stateManager.cartProducts
+                    .map((item) => {
                         if (item.id === Id) {
                             item.qty -= 1
                         }
                         return item;
                     })
-                ]
+                    .filter(cp=>cp.qty > 0)
+                ,
             }
         )
     }
-    const AddToCart = (id) => {
-        setStateManager(
-            {
-                ...stateManager,
-                cartProducts: [
-                    ...stateManager?.cartProducts,
-                    {
-                        id: +id,
-                        qty: 1
-                    }
-                ]
 
-            }
-        )
-    }
 
     return (
         <BasicLayout>
@@ -95,7 +89,7 @@ export default function ProductDetails() {
                         <span className={classes.Color}>{data.color}</span>
                     </p>
                     {
-                        (Cp.item==='') ?
+                        (!Cp) ?
                             <div className={classes.Control}>
                                 <button className={classes.AddToCart} onClick={() => AddToCart(data.id)}>
                                     <span className={classes.IconCart}><GiShoppingCart/></span>
