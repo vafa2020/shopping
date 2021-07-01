@@ -13,17 +13,31 @@ import {AiOutlineMinus, AiOutlinePlus} from "react-icons/all";
 export default function ProductDetails() {
     const {stateManager, setStateManager} = useContext(StateManagement)
     const [data, setData] = useState({})
+    const [Cp, setCp] = useState([])
     let {id} = useParams()
     useEffect(() => {
-        setData(getProducts(id));
+        QTY(id)
+    }, [id])
 
+    function QTY(Id) {
+        setCp(stateManager.cartProducts);
+        Cp.map((item) => {
+            if (item.id === +Id) {
+                setCp(item)
+                return item
+            }
+        })
+    }
+
+    useEffect(() => {
+        setData(getProducts(id));
     }, [id])
     const Plus = (Id) => {
         setStateManager(
             {
                 ...stateManager,
                 cartProducts: [
-                    ...stateManager.cartProducts.map((item, index) => {
+                    ...stateManager.cartProducts.map((item) => {
                         if (item.id === Id) {
                             item.qty += 1
                         }
@@ -33,11 +47,20 @@ export default function ProductDetails() {
             }
         )
     }
-    const Minus = () => {
-        setStateManager({
-            ...stateManager,
-            quantity: --stateManager.quantity
-        })
+    const Minus = (Id) => {
+        setStateManager(
+            {
+                ...stateManager,
+                cartProducts: [
+                    ...stateManager.cartProducts.map((item) => {
+                        if (item.id === Id) {
+                            item.qty -= 1
+                        }
+                        return item;
+                    })
+                ]
+            }
+        )
     }
     const AddToCart = (id) => {
         setStateManager(
@@ -47,7 +70,7 @@ export default function ProductDetails() {
                     ...stateManager?.cartProducts,
                     {
                         id: +id,
-                        qty: stateManager.quantity
+                        qty: 1
                     }
                 ]
 
@@ -72,7 +95,7 @@ export default function ProductDetails() {
                         <span className={classes.Color}>{data.color}</span>
                     </p>
                     {
-                        (!cp) ?
+                        (Cp.item==='') ?
                             <div className={classes.Control}>
                                 <button className={classes.AddToCart} onClick={() => AddToCart(data.id)}>
                                     <span className={classes.IconCart}><GiShoppingCart/></span>
@@ -84,13 +107,14 @@ export default function ProductDetails() {
                                 <button className={classes.Plus} onClick={() => {
                                     Plus(data.id)
                                 }}><AiOutlinePlus/></button>
-                                <span className={classes.Quantity}>{stateManager.quantity}</span>
-                                <button className={classes.Mines} onClick={Minus}><AiOutlineMinus/></button>
+                                <span className={classes.Quantity}>{Cp.qty}</span>
+                                <button className={classes.Mines} onClick={() => {
+                                    Minus(data.id)
+                                }}><AiOutlineMinus/></button>
                             </div>
                     }
                 </div>
             </div>
-
         </BasicLayout>
     )
 }
