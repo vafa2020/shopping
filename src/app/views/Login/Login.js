@@ -3,27 +3,47 @@ import {LogoLogin} from "../../values/Files";
 import {Constants} from "../../values/Constants";
 import {Button, TextField} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {login} from "../../servics/user.servic";
-import { ToastContainer, toast } from 'react-toastify';
+import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {useHistory} from "react-router-dom";
 
 export default function Login() {
+    let history = useHistory()
+    useEffect(()=>{
+        if (Auth()){
+            history.push('/product')
+        }
+    })
+
     const [field, setField] = useState({
         username: 'mor_2314',
         password: '83r5^_'
     })
     const applyLogin = async () => {
+
         const res = await login({
             username: field.username,
             password: field.password
         })
-        if (res.status ===200){
-            toast.success('ورود موفقیت آمیز بود')
-            localStorage.setItem('token',res.data.token)
-        }else {
+        console.log(res)
+        if (res.data == "Error") {
             toast.error('ورود موفقیت آمیز نبود')
+
+        } else {
+            if (res.status === 200) {
+                toast.success('ورود موفقیت آمیز بود', {
+                    onClose: () => {
+                        localStorage.setItem('token', res.data.token)
+                        history.push(localStorage.getItem('lastPage'))
+                    }
+                })
+
+            }
         }
+
+
     }
     const handlerFields = (e) => {
         const {name, value} = e.target
@@ -32,7 +52,10 @@ export default function Login() {
             [name]: value
         })
     }
-
+    const Auth = () => {
+        const db = localStorage.getItem('token');
+        return db
+    }
 
     return (
 
@@ -86,7 +109,7 @@ export default function Login() {
                     </div>
                 </div>
             </div>
-            <ToastContainer rtl={true} />
+            <ToastContainer rtl={true}/>
         </div>
 
     )

@@ -28,7 +28,16 @@
       justify-content: center;
 
       .Image {
+        cursor: pointer;
 
+        &:hover {
+          animation: anim-logo 1s linear infinite alternate;
+          @keyframes anim-logo {
+            to {
+              transform: rotate3d(1, 1, 1, 360deg)
+            }
+          }
+        }
       }
     }
 

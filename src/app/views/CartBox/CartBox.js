@@ -10,24 +10,13 @@ import {Link} from "react-router-dom";
 export default function CartBox() {
     const {stateManager, setStateManager} = useContext(StateManagement)
     const [data, setData] = useState([]);
-    const [Cp, setCp] = useState();
-    const [ID, setID] = useState();
+    const [Cp, setCP] = useState();
+    const [totalPrice, setTotalPrice] = useState();
     useEffect(() => {
         setData(
-            stateManager.cartProducts?.map(cp => stateManager.products.find(p => p.id === cp.id))
-        )
+            stateManager.cartProducts?.map((cp) =>stateManager.products.find((p) => p.id === cp.id)))
     }, [stateManager])
-
-
-    useEffect(() => {
-
-        stateManager.cartProducts.map(item => {
-            if (item.id === ID) {
-                setCp(item)
-            }
-            return item
-        })
-    }, [stateManager])
+    console.log(data)
 
     const Trash = (Id) => {
         const cartProducts = [...stateManager.cartProducts.filter(cp => cp.id !== Id)];
@@ -92,7 +81,7 @@ export default function CartBox() {
                                         <button className={classes.Plus} onClick={() => {
                                             plus(item.id)
                                         }}><AiOutlinePlus/></button>
-                                        <span className={classes.Quantity}>1</span>
+                                        <span className={classes.Quantity}>{Cp}</span>
                                         <button className={classes.Mines} onClick={() => {
                                             minus(item.id)
                                         }}><AiOutlineMinus/></button>

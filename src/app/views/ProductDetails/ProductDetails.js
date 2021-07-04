@@ -3,7 +3,7 @@ import classes from './ProductDetails.module.scss'
 import BasicLayout from "../../Layout/Basic.layout";
 import {useContext, useEffect, useState} from "react";
 import {getProducts} from "../../servics/Product.services";
-import {useParams} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import {Helper} from "scriptpack";
 import {GiShoppingCart} from "react-icons/gi";
 import {Constants} from "../../values/Constants";
@@ -11,6 +11,7 @@ import {AiOutlineMinus, AiOutlinePlus} from "react-icons/all";
 
 
 export default function ProductDetails() {
+    let history = useHistory();
     const {stateManager, setStateManager} = useContext(StateManagement)
     const [data, setData] = useState({})
     const [Cp, setCp] = useState()
@@ -25,19 +26,24 @@ export default function ProductDetails() {
         setData(getProducts(id));
     }, [id])
     const AddToCart = (id) => {
-        setStateManager(
-            {
-                ...stateManager,
-                cartProducts: [
-                    ...stateManager?.cartProducts,
-                    {
-                        id: +id,
-                        qty: 1
-                    }
-                ]
+        if (login()) {
+            setStateManager(
+                {
+                    ...stateManager,
+                    cartProducts: [
+                        ...stateManager?.cartProducts,
+                        {
+                            id: +id,
+                            qty: 1
+                        }
+                    ]
 
-            }
-        )
+                }
+            )
+        } else {
+            localStorage.setItem('lastPage', `/productDetails/${id}`)
+            history.push('/login')
+        }
     }
     const Plus = (Id) => {
         setStateManager(
@@ -65,12 +71,15 @@ export default function ProductDetails() {
                         }
                         return item;
                     })
-                    .filter(cp=>cp.qty > 0)
+                    .filter(cp => cp.qty > 0)
                 ,
             }
         )
     }
-
+    const login = () => {
+        const db = localStorage.getItem('token');
+        return db
+    }
 
     return (
         <BasicLayout>
