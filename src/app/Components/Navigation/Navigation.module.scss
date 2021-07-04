@@ -1,20 +1,42 @@
 @import "src/app/static/style/basic";
 
 .Navigation {
+  @media only screen and (min-width: 360px) {
+    position: relative;
+
+  }
 
   .Items {
     display: flex;
+    @media only screen and (min-width: 360px) {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      height: 100vh;
+      width: 150px;
+      background-color: $color-light;
+
+    }
 
     .Item {
       list-style: none;
       padding-left: 30px;
-
+      @media only screen and (min-width: 360px) {
+        list-style: none;
+        padding-top: 20px;
+      }
 
       .Link {
         font-size: 1.2rem;
         color: $color-dark;
         text-decoration: none;
-        &:hover{
+        @media only screen and (min-width: 360px) {
+          font-size: 1.3rem;
+          color: $color-dark;
+          text-decoration: none;
+        }
+
+        &:hover {
           color: $color-red;
         }
       }

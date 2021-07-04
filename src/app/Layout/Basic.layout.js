@@ -19,7 +19,6 @@ export default function BasicLayout(props) {
                         <img className={classes.Logo} src={Logo} alt=""/>
                     </Link>
                 </div>
-
             </header>
             <div className={'container'}>
                 <main className={classes.Main}>
