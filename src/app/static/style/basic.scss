@@ -24,3 +24,6 @@ img {
   max-height: 100%;
   max-width: 100%;
 }
+.Toastify__toast-body{
+  @extend %FontFamily;
+}
