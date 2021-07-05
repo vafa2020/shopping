@@ -4,34 +4,35 @@
   background-color: $color-secondary;
 
   .Header {
-    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     box-shadow: rgba(0, 0, 0, 0.3) 0 0 5px 0;
-    padding: 5px 350px 5px 400px;
+    padding: 5px 5px;
     background-color: $color-light;
+    position: relative;
 
-    .HamburgerMenu {
-      display: none;
+    @media only screen and (max-width: 998px) {
+      padding: 0 5px;
+
     }
 
-    @media only screen and (min-width: 360px) {
-      position: relative;
+    .Left {
+      width: 100%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      box-shadow: rgba(0, 0, 0, 0.3) 0 0 5px 0;
-      padding: 0;
-      background-color: $color-light;
-      .HamburgerMenu {
-        display: inline-block;
-        font-size: 2rem;
-        padding: 5px;
-      }
+      justify-content: space-between;
+    }
+
+    .BoxCart {
+      display: flex;
+      justify-content: center;
     }
 
     .BoxLogo {
+      text-align: left;
+
       .Logo {
         cursor: pointer;
         height: 50px;

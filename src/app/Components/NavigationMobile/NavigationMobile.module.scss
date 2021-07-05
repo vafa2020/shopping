@@ -1,0 +1,18 @@
+@import "src/app/static/style/basic";
+
+.NavigationMobile {
+  display: none;
+
+  .Hamburger {
+
+  }
+
+  @media only screen and (max-width: 998px) {
+    display: flex;
+    .Hamburger {
+      font-size: 3rem;
+      color: $color-gold;
+      cursor: pointer;
+    }
+  }
+}
