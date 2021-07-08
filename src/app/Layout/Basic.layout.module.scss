@@ -12,8 +12,9 @@
     padding: 5px 5px;
     background-color: $color-light;
     position: relative;
-    @media only screen and (max-width: 998px) {
+    @media only screen and (max-width: 992px) {
       padding: 0 5px;
+
     }
 
     .Left {
@@ -29,7 +30,11 @@
     }
 
     .BoxLogo {
-      text-align: left;
+      display: flex;
+      justify-content: flex-start;
+      @media only screen and (max-width: 992px) {
+        justify-content: flex-end;
+      }
 
       .Logo {
         cursor: pointer;
@@ -40,7 +45,7 @@
   }
 
   .Main {
-
+    padding: 10px;
   }
 
   .Footer {

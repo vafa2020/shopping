@@ -2,7 +2,8 @@
 
 .Items {
   display: flex;
-  @media only screen and (max-width: 998px) {
+  justify-content: center;
+  @media only screen and (max-width: 992px) {
     flex-direction: column;
     align-items: center;
     position: absolute;
@@ -18,7 +19,7 @@
   .Item {
     list-style: none;
     padding-left: 30px;
-    @media only screen and (max-width: 998px) {
+    @media only screen and (max-width: 992px) {
       padding: 10px 0;
       &:nth-child(1) {
         transition: 0.05s;
@@ -44,7 +45,7 @@
       font-size: 1.2rem;
       color: $color-dark;
       text-decoration: none;
-      @media only screen and (max-width: 998px) {
+      @media only screen and (max-width: 992px) {
         color: $color-light;
       }
 
