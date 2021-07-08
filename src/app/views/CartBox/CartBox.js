@@ -14,8 +14,10 @@ export default function CartBox() {
     // const [Cp, setCP] = useState();
     // const [totalPrice, setTotalPrice] = useState();
     useEffect(() => {
-        setData(
-            stateManager.cartProducts?.map((cp) => stateManager.products.find((p) => p.id === cp.id)))
+        const d = stateManager.cartProducts?.map((cp) => {
+            return {...stateManager.products.find((p) => p.id === cp.id), qty: cp.qty};
+        });
+        setData(d);
     }, [stateManager])
     const Trash = (Id) => {
         const cartProducts = [...stateManager.cartProducts.filter(cp => cp.id !== Id)];
@@ -86,7 +88,7 @@ export default function CartBox() {
                                         <button className={classes.Plus} onClick={() => {
                                             plus(item.id)
                                         }}><AiOutlinePlus/></button>
-                                        <span className={classes.Quantity}>0</span>
+                                        <span className={classes.Quantity}>{item.qty}</span>
                                         <button className={classes.Mines} onClick={() => {
                                             minus(item.id)
                                         }}><AiOutlineMinus/></button>
