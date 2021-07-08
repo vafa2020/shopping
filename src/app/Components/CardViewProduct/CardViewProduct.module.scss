@@ -7,28 +7,41 @@
   height: 300px;
   padding: 10px;
   border-radius: $dimen-rounded-low;
+  @media only screen and (max-width: 992px) {
+    height: 200px;
+    padding: initial;
+  }
 
-  .ImageBox {
-    .Image {
-      height: 150px;
+  .Image {
+    height: 150px;
+    @media only screen and (max-width: 992px) {
+      height: 100px;
     }
   }
+
 
   .Description {
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media only screen and (max-width: 992px) {
+      margin-top: -15px;
+    }
 
     .Title {
-
+      @media only screen and (max-width: 992px) {
+        font-size: 1.2rem;
+        padding-top: 2px;
+      }
     }
 
     .Price {
-      color: $color-orange;
+      color: $color-green;
+      font-size: 1.2rem;
     }
 
     .Button {
-      margin-top: 10px;
+      margin-top: 20px;
       width: 250px;
       background-color: $color-dark;
       color: $color-light;
@@ -36,9 +49,15 @@
       border: none;
       padding: 10px;
       cursor: pointer;
+      @media only screen and (max-width: 992px) {
+        margin-top: 10px;
+        width: 150px;
+        font-size: 1rem;
+      }
 
       &:hover {
         background-color: $color-orange;
+        padding: 10px;
       }
     }
   }

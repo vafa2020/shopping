@@ -7,9 +7,9 @@ export default function CardViewProduct({data}) {
 
     return (
         <div className={classes.CardViewProduct}>
-            <div className={classes.ImageBox}>
+
                 <img className={classes.Image} src={data.source} alt=""/>
-            </div>
+
             <div className={classes.Description}>
                 <h2 className={classes.Title}>{data.title}</h2>
                 <span className={classes.Price}>{currency}</span>

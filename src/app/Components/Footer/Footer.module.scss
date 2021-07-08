@@ -14,7 +14,9 @@
     }
 
     .SubTitle {
-
+      @media only screen and (max-width: 992px) {
+        font-size: 1rem;
+      }
     }
 
     .BoxSearch {
@@ -26,6 +28,9 @@
         width: 400px;
         padding: 10px;
         border: none;
+        @media only screen and (max-width: 992px) {
+          width: 200px;
+        }
       }
 
       .Button {
@@ -45,6 +50,9 @@
   .MiddleFooter {
     height: 300px;
     background-color: $color-dark;
+    @media only screen and (max-width: 992px) {
+      height: 200px;
+    }
   }
 
   .bottomFooter {
@@ -56,6 +64,11 @@
 
     .Author {
       color: $color-light;
+      @media only screen and (max-width: 992px) {
+        font-size: 0.9rem;
+        padding:0 5px;
+        line-height: 20px;
+      }
     }
   }
 }
