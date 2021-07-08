@@ -10,12 +10,24 @@
   border-radius: $dimen-rounded-low;
   margin: 20px 0;
 
+  @media only screen and (max-width: 992px) {
+    padding: 10px;
+    margin: initial;
+
+  }
+
   .Product {
     display: flex;
     align-items: center;
     border: 2px solid #eee;
     margin-bottom: 20px;
     border-radius: $dimen-rounded-low;
+    @media only screen and (max-width: 992px) {
+      flex-direction: column;
+      margin-bottom: initial;
+      text-align: center;
+      padding: 10px;
+    }
   }
 
   .Trash {
@@ -24,6 +36,11 @@
     cursor: pointer;
     font-size: 2.5rem;
     color: darken($color-yellow, 30);
+    @media only screen and (max-width: 992px) {
+      position: absolute;
+      right: 20px;
+      top: 80px;
+    }
   }
 
   .Image {
@@ -36,25 +53,45 @@
     flex-grow: 1;
 
     .Title {
+      width: 300px;
+      text-align: center;
       padding: 5px;
+      box-shadow: rgba($color-dark, 0.3) 0 5px 15px 0;
       border-radius: $dimen-rounded-low;
       color: $color-green;
       font-size: 1.8rem;
+      @media only screen and (max-width: 992px) {
+        font-size: 1.3rem;
+        width: 250px;
+      }
     }
+
 
     .BoxPrice {
       display: flex;
       align-items: center;
 
       .Price {
+        text-align: center;
+        border-radius: $dimen-rounded-low;
+        display: inline-block;
+        padding: 5px;
+        margin-right: 10px;
+        width: 100px;
+        color: lighten($color-dark, 30);
         font-size: 1.5rem;
-        margin-left: 5px;
+        box-shadow: rgba($color-dark, 0.3) 0 5px 15px 0;
       }
 
       .Text {
         font-size: 1.2rem;
+        border-radius: $dimen-rounded-low;
+        text-align: center;
+        display: inline-block;
         color: $color-green;
         padding: 5px;
+        box-shadow: rgba($color-dark, 0.3) 0 5px 15px 0;
+        width: 70px;
       }
 
     }
@@ -72,16 +109,23 @@
 
       .Text {
         font-size: 1.2rem;
+        border-radius: $dimen-rounded-low;
+        text-align: center;
+        display: inline-block;
         color: $color-green;
         padding: 5px;
+        box-shadow: rgba($color-dark, 0.3) 0 5px 15px 0;
+        width: 70px;
       }
     }
 
     .PlusMines {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       margin: 10px;
-      text-align: center;
+      @media only screen and (max-width: 992px) {
+        margin: initial;
+      }
 
       .Plus {
         display: flex;
@@ -116,15 +160,18 @@
       }
     }
   }
-  .Empty{
+
+  .Empty {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    .textEmpty{
+
+    .textEmpty {
       font-size: 1.5rem;
     }
-    .IconEmpty{
+
+    .IconEmpty {
       font-size: 80px;
     }
   }
