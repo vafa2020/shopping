@@ -2,30 +2,42 @@
 
 .Items {
   display: flex;
-  align-items: center;
-  text-align: center;
   @media only screen and (max-width: 998px) {
     flex-direction: column;
+    align-items: center;
     position: absolute;
-    height: 100vh;
-    width: 150px;
-    background-color: $color-light;
+    width: 100%;
+    background-color: lighten($color-dark, 10);
     top: 41px;
     right: 0;
     padding: 0;
+    border-top: 3px solid $color-yellow;
+
   }
 
   .Item {
     list-style: none;
     padding-left: 30px;
     @media only screen and (max-width: 998px) {
-      list-style: none;
-      background-color: $color-light-green;
-      width: 130px;
-      padding: 10px;
-      border-radius: $dimen-rounded-low;
-      margin-top: 5px;
-
+      padding: 10px 0;
+      &:nth-child(1) {
+        transition: 0.05s;
+      }
+      &:nth-child(2) {
+        transition: 0.15s;
+      }
+      &:nth-child(3) {
+        transition: 0.25s;
+      }
+      &:nth-child(4) {
+        transition: 0.35s;
+      }
+      &:nth-child(5) {
+        transition: 0.45s;
+      }
+      &:nth-child(6) {
+        transition: 0.55s;
+      }
     }
 
     .Link {
@@ -37,7 +49,7 @@
       }
 
       &:hover {
-        color: $color-red;
+        color: $color-primary;
       }
     }
   }
