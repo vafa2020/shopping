@@ -8,7 +8,6 @@
   background: $color-light;
   box-shadow: rgba($color-dark, 0.3) 0 10px 20px 0;
   border-radius: $dimen-rounded-low;
-  position: relative;
   margin: 20px 0;
 
   .Product {
@@ -115,6 +114,18 @@
         background-color: transparent;
         box-shadow: rgba($color-dark, 0.3) 0 5px 10px 0;
       }
+    }
+  }
+  .Empty{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .textEmpty{
+      font-size: 1.5rem;
+    }
+    .IconEmpty{
+      font-size: 80px;
     }
   }
 }

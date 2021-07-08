@@ -46,14 +46,6 @@ export const Constants = {
     MemberLogin:'خوش آمدید',
     Username:'نام کاربری',
     Password:'رمز عبور',
-    Login:'ورود'
-
-
-
-
-
-
-
-
-
+    Login:'ورود',
+    Empty:'سبد خرید شما خالی است.'
 }

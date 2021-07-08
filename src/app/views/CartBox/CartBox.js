@@ -2,22 +2,21 @@ import classes from './CartBox.module.scss'
 import BasicLayout from "../../Layout/Basic.layout";
 import {useContext, useEffect, useState} from "react";
 import {Helper} from "scriptpack";
-import {AiOutlineMinus, AiOutlinePlus, BsTrash} from "react-icons/all";
+import {AiOutlineMinus, AiOutlinePlus, BsTrash, FcFullTrash} from "react-icons/all";
 import {StateManagement} from "../../utils/StateManagment";
 import {Link} from "react-router-dom";
+import {Constants} from "../../values/Constants";
 
 
 export default function CartBox() {
     const {stateManager, setStateManager} = useContext(StateManagement)
     const [data, setData] = useState([]);
-    const [Cp, setCP] = useState();
-    const [totalPrice, setTotalPrice] = useState();
+    // const [Cp, setCP] = useState();
+    // const [totalPrice, setTotalPrice] = useState();
     useEffect(() => {
         setData(
-            stateManager.cartProducts?.map((cp) =>stateManager.products.find((p) => p.id === cp.id)))
+            stateManager.cartProducts?.map((cp) => stateManager.products.find((p) => p.id === cp.id)))
     }, [stateManager])
-    console.log(data)
-
     const Trash = (Id) => {
         const cartProducts = [...stateManager.cartProducts.filter(cp => cp.id !== Id)];
         setStateManager({
@@ -62,7 +61,13 @@ export default function CartBox() {
         <BasicLayout>
             <div className={classes.Container}>
                 {
-                    data?.map((item, index) => (
+                    (data.length == '') ?
+                        <div className={classes.Empty}>
+                            <FcFullTrash className={classes.IconEmpty} />
+                            <span className={classes.textEmpty}>{Constants.Empty}</span>
+                        </div>
+                        :
+                        data.map((item, index) => (
                             <div key={index} className={classes.Product}>
                                 <Link to={`/productDetails/${item.id}`}>
                                     <img className={classes.Image} src={item.source} alt=""/>
@@ -81,7 +86,7 @@ export default function CartBox() {
                                         <button className={classes.Plus} onClick={() => {
                                             plus(item.id)
                                         }}><AiOutlinePlus/></button>
-                                        <span className={classes.Quantity}>{Cp}</span>
+                                        <span className={classes.Quantity}>0</span>
                                         <button className={classes.Mines} onClick={() => {
                                             minus(item.id)
                                         }}><AiOutlineMinus/></button>
@@ -91,9 +96,7 @@ export default function CartBox() {
                                     Trash(item.id)
                                 }} className={classes.Trash}><BsTrash/></button>
                             </div>
-                        )
-                    )
-                }
+                        ))}
             </div>
         </BasicLayout>
     )
