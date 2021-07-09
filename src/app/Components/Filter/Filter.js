@@ -9,6 +9,9 @@ export default function Filter() {
     const [color, setColor] = useState();
     const [brand, setBrand] = useState();
     const [range, setRange] = useState();
+    useEffect(() => {
+        applyFilter(type, color, brand, range)
+    }, [type, color, brand, range])
     const applyFilter = (type, color, brand, range) => {
         function compare(a, b) {
             if (type === 0) return 0;
@@ -33,9 +36,7 @@ export default function Filter() {
         });
 
     }
-    useEffect(()=>{
-        applyFilter(type, color, brand, range)
-    },[type, color, brand, range])
+
 
 
     return (

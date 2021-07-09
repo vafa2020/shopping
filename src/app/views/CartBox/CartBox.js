@@ -11,14 +11,29 @@ import {Constants} from "../../values/Constants";
 export default function CartBox() {
     const {stateManager, setStateManager} = useContext(StateManagement)
     const [data, setData] = useState([]);
-    // const [Cp, setCP] = useState();
-    // const [totalPrice, setTotalPrice] = useState();
+    const [TotalPrice, setTotalPrice] = useState();
     useEffect(() => {
-        const d = stateManager.cartProducts?.map((cp) => {
-            return {...stateManager.products.find((p) => p.id === cp.id), qty: cp.qty};
-        });
-        setData(d);
+        Data()
+        calculator()
     }, [stateManager])
+
+    const Data = () => {
+        setData(stateManager.cartProducts?.map(cp => ({
+            ...stateManager.products.find(p => p.id === cp.id),
+            qty: cp.qty
+        })))
+    }
+    const calculator = () => {
+        setTotalPrice(
+            data.reduce((acc, cur) => {
+                return acc + cur.price * cur.qty
+            }, 0)
+        )
+        setStateManager({
+            ...stateManager,
+            TotalPrice: TotalPrice
+        })
+    }
     const Trash = (Id) => {
         const cartProducts = [...stateManager.cartProducts.filter(cp => cp.id !== Id)];
         setStateManager({
@@ -49,23 +64,23 @@ export default function CartBox() {
                     .map((item) => {
                         if (item.id === Id) {
                             if (item.qty > 1) {
-                                item.qty -= 1
+                                item.qty--
                             }
                         }
                         return item;
                     })
-                    .filter(cp => cp.qty > 0)
             }
         )
+
     }
 
     return (
         <BasicLayout>
             <div className={classes.Container}>
                 {
-                    (data.length == '') ?
+                    (data.length === '') ?
                         <div className={classes.Empty}>
-                            <FcFullTrash className={classes.IconEmpty} />
+                            <FcFullTrash className={classes.IconEmpty}/>
                             <span className={classes.textEmpty}>{Constants.Empty}</span>
                         </div>
                         :
@@ -93,12 +108,18 @@ export default function CartBox() {
                                             minus(item.id)
                                         }}><AiOutlineMinus/></button>
                                     </div>
+
                                 </div>
                                 <button onClick={() => {
                                     Trash(item.id)
                                 }} className={classes.Trash}><BsTrash/></button>
+
                             </div>
                         ))}
+                <div className={classes.BoxTotalPrice}>
+                    <span className={classes.TotalPriceText}>{Constants.TotalPrice}</span>
+                    <span className={classes.TotalPrice}>{Helper.toCurrencyFormat(TotalPrice)}</span>
+                </div>
             </div>
         </BasicLayout>
     )
