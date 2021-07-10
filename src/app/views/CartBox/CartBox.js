@@ -13,26 +13,29 @@ export default function CartBox() {
     const [data, setData] = useState([]);
     const [TotalPrice, setTotalPrice] = useState();
     useEffect(() => {
-        Data()
-        calculator()
-    }, [stateManager])
+        setData(Data);
+        setTotalPrice(calculator())
 
+    }, [data])
+    useEffect(() => {
+        setStateManager(
+            {
+                ...stateManager,
+                TotalPrice: TotalPrice
+            }
+        )
+    }, [TotalPrice])
     const Data = () => {
-        setData(stateManager.cartProducts?.map(cp => ({
+        return stateManager.cartProducts?.map(cp => ({
             ...stateManager.products.find(p => p.id === cp.id),
             qty: cp.qty
-        })))
+        }))
+
     }
     const calculator = () => {
-        setTotalPrice(
-            data.reduce((acc, cur) => {
-                return acc + cur.price * cur.qty
-            }, 0)
-        )
-        setStateManager({
-            ...stateManager,
-            TotalPrice: TotalPrice
-        })
+        return data.reduce((acc, cur) => {
+            return acc + cur.price * cur.qty
+        }, 0)
     }
     const Trash = (Id) => {
         const cartProducts = [...stateManager.cartProducts.filter(cp => cp.id !== Id)];
