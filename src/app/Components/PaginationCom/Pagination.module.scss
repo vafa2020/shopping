@@ -1,0 +1,43 @@
+@import "src/app/static/style/basic";
+
+.PaginationCom {
+  display: flex;
+  justify-content: center;
+  @media only screen and (max-width: 992px) {
+
+
+  }
+
+  .Items {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0;
+
+    .Item {
+      list-style: none;
+      padding: 5px 10px;
+      border: 1px solid $color-grey;
+      margin-right: 10px;
+      margin-left: 10px;
+      border-radius: $dimen-rounded-low;
+      cursor: pointer;
+
+      &:focus {
+        background-color: darkblue;
+        color: $color-light;
+      }
+
+      &:hover {
+        background-color: lighten($color-primary, 20);
+        color: $color-light;
+      }
+
+      .Link {
+        font-size: 1.5rem;
+      }
+    }
+
+  }
+
+}

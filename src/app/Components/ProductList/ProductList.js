@@ -1,5 +1,5 @@
 import classes from './ProductList.module.scss';
-import React, {useContext,useState} from 'react';
+import React, {useContext, useState} from 'react';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import {FcLike} from "react-icons/fc";
@@ -9,10 +9,10 @@ import {Constants} from "../../values/Constants";
 import {Helper} from "scriptpack";
 import {BiHeart, HiOutlineBookmark} from "react-icons/all";
 import {StateManagement} from "../../utils/StateManagment";
+import PaginationCom from "../PaginationCom/Pagination";
 
 
-
-export default function ProductList({data}) {
+export default function ProductList({data,dataPerPage,paginate}) {
 
     const {stateManager, setStateManager} = useContext(StateManagement);
     const [like, setLike] = useState(false);

@@ -6,34 +6,45 @@ import {useParams} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import {Category} from "../../servics/Product.services";
 import {StateManagement} from "../../utils/StateManagment";
-
-
+import PaginationCom from "../../Components/PaginationCom/Pagination";
 
 
 export default function Product() {
     const {stateManager} = useContext(StateManagement)
     let {category} = useParams();
-    let [data, setData] = useState([]);
+    const [data, setData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [dataPerPage] = useState(6)
+
+    const indexOfLastData = currentPage * dataPerPage;
+    const indexOfFirstData = indexOfLastData - dataPerPage;
+    const currentData = data.slice(indexOfFirstData, indexOfLastData)
+    console.log(currentData)
     useEffect(() => {
-        setData(Category(category,stateManager.products));
-    }, [category,stateManager]);
+        setData(Category(category, stateManager.products));
+    }, [category, stateManager]);
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     return (
         <BasicLayout>
             <div className={classes.Product}>
                 <div className={'row'}>
                     <div className={'col-md-3 col-xs-12'}>
-                        <Filter />
+                        <Filter/>
                     </div>
                     <div className={'col-md-9'}>
                         <div className={'row'}>
+
                             {
-                                data?.map((item, index) => (
+                                currentData?.map((item, index) => (
                                     <div key={index} className={'col-md-4 col-xs-12'}>
-                                        <ProductList data={item}/>
+                                        <ProductList data={item} dataPerPage={dataPerPage} />
                                     </div>
                                 ))
                             }
+                            <div className={classes.Main}>
+                                <PaginationCom totalData={data.length} dataPerPage={dataPerPage} paginate={paginate}/>
+                            </div>
                         </div>
                     </div>
                 </div>
