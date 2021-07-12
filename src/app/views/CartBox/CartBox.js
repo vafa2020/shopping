@@ -11,15 +11,14 @@ import {Constants} from "../../values/Constants";
 export default function CartBox() {
     const {stateManager, setStateManager} = useContext(StateManagement)
     const [data, setData] = useState([]);
-    const [TotalPrice, setTotalPrice] = useState();
+    const [TotalPrice, setTotalPrice] = useState(0);
+
     useEffect(() => {
         setData(Data);
     }, [stateManager])
-
     useEffect(() => {
         setTotalPrice(calculator())
     }, [data])
-
     useEffect(() => {
         setStateManager(
             {
@@ -84,7 +83,7 @@ export default function CartBox() {
         <BasicLayout>
             <div className={classes.Container}>
                 {
-                    (data.length === '') ?
+                    (data.length == '') ?
                         <div className={classes.Empty}>
                             <FcFullTrash className={classes.IconEmpty}/>
                             <span className={classes.textEmpty}>{Constants.Empty}</span>
@@ -122,10 +121,17 @@ export default function CartBox() {
 
                             </div>
                         ))}
-                <div className={classes.BoxTotalPrice}>
-                    <span className={classes.TotalPriceText}>{Constants.TotalPrice}</span>
-                    <span className={classes.TotalPrice}>{Helper.toCurrencyFormat(TotalPrice)}</span>
-                </div>
+                {
+                    (TotalPrice === 0) ?
+                        ''
+                        :
+                        <div className={classes.BoxTotalPrice}>
+                            <span className={classes.TotalPriceText}>{Constants.TotalPrice}</span>
+                            <span className={classes.TotalPrice}>{Helper.toCurrencyFormat(TotalPrice)}</span>
+                        </div>
+
+                }
+
             </div>
         </BasicLayout>
     )
