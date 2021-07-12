@@ -4,5 +4,6 @@ export const State = {
     currentActiveStar:1,
     cartProducts:[],
     TotalPrice:0,
-    products: ProductDataList
+    products: ProductDataList,
+    pagination:1
 }

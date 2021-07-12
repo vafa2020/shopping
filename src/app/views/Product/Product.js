@@ -13,16 +13,16 @@ export default function Product() {
     const {stateManager} = useContext(StateManagement)
     let {category} = useParams();
     const [data, setData] = useState([]);
+    useEffect(() => {
+        setData(Category(category, stateManager.products));
+    }, [category, stateManager]);
     const [currentPage, setCurrentPage] = useState(1);
     const [dataPerPage] = useState(6)
 
     const indexOfLastData = currentPage * dataPerPage;
     const indexOfFirstData = indexOfLastData - dataPerPage;
     const currentData = data.slice(indexOfFirstData, indexOfLastData)
-    console.log(currentData)
-    useEffect(() => {
-        setData(Category(category, stateManager.products));
-    }, [category, stateManager]);
+
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     return (
