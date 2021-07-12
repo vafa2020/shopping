@@ -7,6 +7,8 @@ import {useContext, useEffect, useState} from "react";
 import {Category} from "../../servics/Product.services";
 import {StateManagement} from "../../utils/StateManagment";
 import PaginationCom from "../../Components/PaginationCom/Pagination";
+import FilterMobile from "../../Components/FilterMobile/FilterMobile";
+import FilterDesktop from "../../Components/FilterDesktop/FilterDesktop";
 
 
 export default function Product() {
@@ -17,7 +19,8 @@ export default function Product() {
         setData(Category(category, stateManager.products));
     }, [category, stateManager]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [dataPerPage] = useState(6)
+    const [dataPerPage] = useState(6);
+
 
     const indexOfLastData = currentPage * dataPerPage;
     const indexOfFirstData = indexOfLastData - dataPerPage;
@@ -30,7 +33,8 @@ export default function Product() {
             <div className={classes.Product}>
                 <div className={'row'}>
                     <div className={'col-md-3 col-xs-12'}>
-                        <Filter/>
+                     <FilterMobile/>
+                     <FilterDesktop/>
                     </div>
                     <div className={'col-md-9'}>
                         <div className={'row'}>
@@ -38,12 +42,13 @@ export default function Product() {
                             {
                                 currentData?.map((item, index) => (
                                     <div key={index} className={'col-md-4 col-xs-12'}>
-                                        <ProductList data={item} dataPerPage={dataPerPage} />
+                                        <ProductList data={item} dataPerPage={dataPerPage}/>
                                     </div>
                                 ))
                             }
                             <div className={classes.Main}>
-                                <PaginationCom totalData={data.length} dataPerPage={dataPerPage} paginate={paginate}/>
+                                <PaginationCom totalData={data.length} dataPerPage={dataPerPage}
+                                               paginate={paginate}/>
                             </div>
                         </div>
                     </div>

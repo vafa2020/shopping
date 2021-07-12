@@ -6,6 +6,9 @@
   background-color: $color-light;
   margin: 10px 0;
   border-radius: $dimen-rounded-low;
+  @media only screen and (max-width: 992px) {
+    height: 280px;
+  }
 
   .Header {
     display: flex;
@@ -15,6 +18,9 @@
 
     .ImageBox {
       margin-top: 30px;
+      @media only screen and (max-width: 992px) {
+        margin-top: initial;
+      }
 
       .Image {
         height: 150px;
@@ -54,10 +60,22 @@
 
     .Rating {
       margin-top: 10px;
+      @media only screen and (max-width: 992px) {
+        margin: 0;
+        height: 35px;
+
+      }
+
     }
 
     .Price {
       margin-top: -20px;
+      color: $color-blue;
+      font-weight: bold;
+      @media only screen and (max-width: 992px) {
+        margin-top: initial;
+
+      }
 
     }
 
@@ -69,7 +87,10 @@
       border: 1px solid $color-deep-orange;
       background-color: transparent;
       color: $color-deep-orange;
+      @media only screen and (max-width: 992px) {
+        margin-top: 10px;
 
+      }
       &:hover {
         background-color: $color-deep-orange;
         color: $color-light;

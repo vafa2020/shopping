@@ -48,5 +48,6 @@ export const Constants = {
     Password:'رمز عبور',
     Login:'ورود',
     Empty:'سبد خرید شما خالی است.',
-    TotalPrice:'قیمت نهایی :'
+    TotalPrice:'قیمت نهایی :',
+    advancedSearch:'جستجوی پیشرفته'
 }

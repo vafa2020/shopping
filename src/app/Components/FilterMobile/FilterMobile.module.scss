@@ -1,0 +1,29 @@
+@import "src/app/static/style/basic";
+
+.FilterMobile {
+  display: none;
+  position: relative;
+  @media only screen and (max-width: 992px) {
+    display: flex;
+  }
+
+  .BoxAdvancedSearch {
+    width: 100%;
+
+    .FilterButton {
+      position: relative;
+      background-color: $color-blue;
+      font-size: 1.2rem;
+      color: $color-light;
+
+      .FilterIcon {
+        position: absolute;
+        font-weight: bold;
+        left: 70px;
+        font-size: 1.8rem;
+      }
+    }
+
+  }
+
+}

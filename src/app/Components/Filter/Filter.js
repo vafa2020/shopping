@@ -29,10 +29,9 @@ export default function Filter() {
         const colorData = color ? sortData.filter(p => p.color === color) : sortData;
         const brandData = brand ? colorData.filter(p => p.model === brand) : colorData;
         const rangeData = range ? brandData.filter(p => p.price >= range) : brandData
-        const data = rangeData;
         setStateManager({
             ...stateManager,
-            products: data
+            products: rangeData
         });
 
     }
