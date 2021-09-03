@@ -14,7 +14,6 @@ export default function NavLink() {
             <motion.li initial={animateFrom} animate={animateTo} className={classes.Item}><Link to="/product/laptop" className={classes.Link}>{Constants.Laptop}</Link></motion.li>
             <motion.li initial={animateFrom} animate={animateTo} className={classes.Item}><Link to="/product/camera" className={classes.Link}>{Constants.Camera}</Link></motion.li>
             <motion.li initial={animateFrom} animate={animateTo} className={classes.Item}><Link to="/product/watch" className={classes.Link}>{Constants.Watch}</Link></motion.li>
-            <motion.li initial={animateFrom} animate={animateTo} className={classes.Item}><Link to="/cartBox" className={classes.Link}>{Constants.Cart}</Link></motion.li>
         </ul>
     )
 }

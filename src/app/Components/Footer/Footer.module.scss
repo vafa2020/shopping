@@ -1,74 +1,71 @@
 @import "src/app/static/style/basic";
 
-.Footer {
-  .TopFooter {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: lighten($color-grey, 30);
-    height: 200px;
+.TopFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lighten($color-grey, 30);
+  height: 200px;
 
-    .Title {
-      margin-top: -10px;
-    }
-
-    .SubTitle {
-      @media only screen and (max-width: 992px) {
-        font-size: 1rem;
-      }
-    }
-
-    .BoxSearch {
-      margin-top: 15px;
-      border-radius: $dimen-rounded-low;
-      overflow: hidden;
-
-      .Search {
-        width: 400px;
-        padding: 10px;
-        border: none;
-        @media only screen and (max-width: 992px) {
-          width: 200px;
-        }
-      }
-
-      .Button {
-        padding: 10px;
-        border: none;
-        background-color: $color-dark;
-        color: $color-light;
-
-        &:hover {
-          background-color: $color-orange;
-        }
-      }
-    }
-
+  .Title {
+    margin-top: -10px;
   }
 
-  .MiddleFooter {
-    height: 300px;
-    background-color: $color-dark;
+  .SubTitle {
     @media only screen and (max-width: 992px) {
-      height: 200px;
+      font-size: 1rem;
     }
   }
 
-  .bottomFooter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    background-color: lighten($color-dark, 5);
+  .BoxSearch {
+    margin-top: 15px;
+    border-radius: $dimen-rounded-low;
+    overflow: hidden;
 
-    .Author {
-      color: $color-light;
+    .Search {
+      width: 400px;
+      padding: 10px;
+      border: none;
       @media only screen and (max-width: 992px) {
-        font-size: 0.9rem;
-        padding:0 5px;
-        line-height: 20px;
+        width: 200px;
       }
+    }
+
+    .Button {
+      padding: 10px;
+      border: none;
+      background-color: $color-dark;
+      color: $color-light;
+
+      &:hover {
+        background-color: $color-orange;
+      }
+    }
+  }
+}
+
+.MiddleFooter {
+  height: 300px;
+  background-color: $color-dark;
+  @media only screen and (max-width: 992px) {
+    height: 200px;
+  }
+}
+
+.bottomFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: lighten($color-dark, 5);
+
+  .Author {
+    color: $color-light;
+    @media only screen and (max-width: 992px) {
+      font-size: 0.9rem;
+      padding: 0 5px;
+      line-height: 20px;
     }
   }
 }

@@ -3,16 +3,13 @@
 .NavigationMobile {
   display: none;
 
-  .Hamburger {
-
-  }
-
+  
   @media only screen and (max-width: 992px) {
     display: flex;
     z-index: 2;
     .Hamburger {
       font-size: 3rem;
-      color: $color-blue;
+      color: blueviolet;
       cursor: pointer;
     }
   }
