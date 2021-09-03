@@ -2,11 +2,9 @@
 
 .NavigationMobile {
   display: none;
-
-  
   @media only screen and (max-width: 992px) {
     display: flex;
-    z-index: 2;
+    z-index: 10;
     .Hamburger {
       font-size: 3rem;
       color: blueviolet;

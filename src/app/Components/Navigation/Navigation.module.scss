@@ -1,8 +1,9 @@
 @import "src/app/static/style/basic";
 
 .Navigation {
+    display: flex;
+    justify-content: center;
   @media only screen and (max-width: 992px) {
-display: none;
-
+    display: none;
   }
 }
