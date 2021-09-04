@@ -11,13 +11,12 @@
     margin-top: 50px;
   }
 
-
   .FilterSort {
     height: 120px;
     border-bottom: 3px solid $color-light;
 
     .Title {
-      background-color: $color-blue;
+      background-color: $color-primary;
       border-radius: $dimen-rounded-low;
       color: $color-light;
       padding: 10px;
@@ -40,7 +39,6 @@
         box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px 0;
       }
     }
-
   }
 
   .FilterColor {
@@ -48,7 +46,7 @@
     border-bottom: 3px solid $color-light;
 
     .Title {
-      background-color: $color-blue;
+      background-color: $color-primary;
       border-radius: $dimen-rounded-low;
       color: $color-light;
       padding: 10px;
@@ -71,14 +69,13 @@
         box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px 0;
       }
     }
-
   }
 
   .FilterPrice {
     height: 200px;
 
     .Title {
-      background-color: $color-blue;
+      background-color: $color-primary;
       border-radius: $dimen-rounded-low;
       color: $color-light;
       padding: 10px;
@@ -95,11 +92,8 @@
 
       .InputPrice {
         margin: 10px 0;
-
       }
-
     }
-
   }
 
   .FilterModel {
@@ -107,7 +101,7 @@
     border-bottom: 3px solid $color-light;
 
     .Title {
-      background-color: $color-blue;
+      background-color: $color-primary;
       border-radius: $dimen-rounded-low;
       color: $color-light;
       padding: 10px;
@@ -122,7 +116,6 @@
         font-weight: bold;
       }
 
-
       .Select {
         width: 100%;
         border-radius: $dimen-rounded-low;
@@ -131,23 +124,21 @@
         box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px 0;
       }
     }
-
   }
-
 }
 
-input[type=range] {
+input[type="range"] {
   height: 32px;
   -webkit-appearance: none;
   margin: 10px 0;
   width: 100%;
 }
 
-input[type=range]:focus {
+input[type="range"]:focus {
   outline: none;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 16px;
   cursor: pointer;
@@ -155,47 +146,47 @@ input[type=range]::-webkit-slider-runnable-track {
   box-shadow: 0 0 0 #000000;
   background: $color-light;
   border-radius: 25px;
-  border: 1px solid #8A8A8A;
+  border: 1px solid #8a8a8a;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   box-shadow: 1px 1px 1px #828282;
-  border: 1px solid #8A8A8A;
+  border: 1px solid #8a8a8a;
   height: 24px;
   width: 35px;
   border-radius: 6px;
-  background: $color-blue;
+  background-color: $color-primary;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -5px;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #B6B6B6;
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #b6b6b6;
 }
 
-input[type=range]::-moz-range-track {
+input[type="range"]::-moz-range-track {
   width: 100%;
   height: 16px;
   cursor: pointer;
   animate: 0.2s;
   box-shadow: 0px 0px 0px #000000;
-  background: #B6B6B6;
+  background: #b6b6b6;
   border-radius: 25px;
-  border: 1px solid #8A8A8A;
+  border: 1px solid #8a8a8a;
 }
 
-input[type=range]::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
   box-shadow: 1px 1px 1px #828282;
-  border: 1px solid #8A8A8A;
+  border: 1px solid #8a8a8a;
   height: 24px;
   width: 35px;
   border-radius: 6px;
-  background: #DADADA;
+  background: #dadada;
   cursor: pointer;
 }
 
-input[type=range]::-ms-track {
+input[type="range"]::-ms-track {
   width: 100%;
   height: 16px;
   cursor: pointer;
@@ -204,36 +195,31 @@ input[type=range]::-ms-track {
   border-color: transparent;
   color: transparent;
 }
-
-input[type=range]::-ms-fill-lower {
-  background: #B6B6B6;
-  border: 1px solid #8A8A8A;
+input[type="range"]::-ms-fill-lower {
+  background: #b6b6b6;
+  border: 1px solid #8a8a8a;
   border-radius: 50px;
   box-shadow: 0px 0px 0px #000000;
 }
-
-input[type=range]::-ms-fill-upper {
-  background: #B6B6B6;
-  border: 1px solid #8A8A8A;
+input[type="range"]::-ms-fill-upper {
+  background: #b6b6b6;
+  border: 1px solid #8a8a8a;
   border-radius: 50px;
   box-shadow: 0px 0px 0px #000000;
 }
-
-input[type=range]::-ms-thumb {
+input[type="range"]::-ms-thumb {
   margin-top: 1px;
   box-shadow: 1px 1px 1px #828282;
-  border: 1px solid #8A8A8A;
+  border: 1px solid #8a8a8a;
   height: 24px;
   width: 35px;
   border-radius: 6px;
-  background: #DADADA;
+  background: #dadada;
   cursor: pointer;
 }
-
-input[type=range]:focus::-ms-fill-lower {
-  background: #B6B6B6;
+input[type="range"]:focus::-ms-fill-lower {
+  background: #b6b6b6;
 }
-
-input[type=range]:focus::-ms-fill-upper {
-  background: #B6B6B6;
+input[type="range"]:focus::-ms-fill-upper {
+  background: #b6b6b6;
 }

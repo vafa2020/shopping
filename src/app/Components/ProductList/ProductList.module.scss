@@ -1,13 +1,13 @@
 @import "src/app/static/style/basic";
 
 .ProductList {
-  height: 330px;
+  height: 280px;
   width: 100%;
   background-color: $color-light;
   margin: 10px 0;
   border-radius: $dimen-rounded-low;
   @media only screen and (max-width: 992px) {
-    height: 280px;
+    height: 250px;
   }
 
   .Header {
@@ -17,13 +17,13 @@
     position: relative;
 
     .ImageBox {
-      margin-top: 30px;
+      margin-top: 20px;
       @media only screen and (max-width: 992px) {
         margin-top: initial;
       }
 
       .Image {
-        height: 150px;
+        height: 130px;
       }
     }
 
@@ -53,49 +53,42 @@
     align-items: center;
     flex-direction: column;
 
-
     .Title {
-
+      color: darken($color-grey, 20);
+      font-weight: bold;
     }
 
     .Rating {
-      margin-top: 10px;
+      margin: 0;
+      padding: 0;
       @media only screen and (max-width: 992px) {
         margin: 0;
         height: 35px;
-
       }
-
     }
 
     .Price {
-      margin-top: -20px;
-      color: $color-blue;
+      color: $color-primary;
       font-weight: bold;
       @media only screen and (max-width: 992px) {
         margin-top: initial;
-
       }
-
     }
 
     .button {
       margin-top: 20px;
       border-radius: $dimen-rounded-low;
-      width: 200px;
-      padding: 10px;
-      border: 1px solid $color-deep-orange;
-      background-color: transparent;
-      color: $color-deep-orange;
+      padding: 10px 25px;
+      border: none;
+      background-color: lighten($color-primary, 10);
+      color: $color-light;
       @media only screen and (max-width: 992px) {
         margin-top: 10px;
-
       }
       &:hover {
         background-color: $color-deep-orange;
         color: $color-light;
       }
-
     }
   }
 }

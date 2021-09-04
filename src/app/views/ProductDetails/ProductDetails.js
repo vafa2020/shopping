@@ -16,6 +16,7 @@ export default function ProductDetails() {
     const [data, setData] = useState({})
     const [Cp, setCp] = useState()
     let {id} = useParams()
+    
     useEffect(() => {
         const cp = stateManager.cartProducts.find(cp => cp.id === +id)
         setCp(cp);

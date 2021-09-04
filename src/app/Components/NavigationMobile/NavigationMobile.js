@@ -24,7 +24,7 @@ export default function NavigationMobile() {
   return (
     <nav className={classes.NavigationMobile}>
       {open ? closeIcon : openIcon}
-      {open && <NavLink />}
+      {open && <NavLink setOpen={setOpen} open={open}/>}
     </nav>
   );
 }

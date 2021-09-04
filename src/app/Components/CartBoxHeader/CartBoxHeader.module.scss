@@ -1,23 +1,22 @@
 @import "src/app/static/style/basic";
 
 .CartBoxHeader {
-  display: flex;
   position: relative;
-  left: -300px;
+  left: -140px;
  
   @media only screen and (max-width: 992px) {
     padding: 0 8px;
-    left: -50px;
+    left: -60px !important;
   }
   @media only screen and (max-width: 1024px) {
     padding: 0 8px;
-    left: -150px;
+    left: -130px;
   }
   
   .IconCart {
     font-size: 2.5rem;
     font-weight: bold;
-    color: blueviolet;
+    color: $color-primary;
   }
 
   .CartCount {
@@ -32,7 +31,7 @@
     border-radius: 50%;
     font-weight: bold;
     position: absolute;
-    left: -5px;
+    left: -3px;
     top: -10px;
     
   }

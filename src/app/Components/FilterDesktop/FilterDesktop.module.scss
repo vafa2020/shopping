@@ -1,6 +1,7 @@
 @import "src/app/static/style/basic";
 
 .FilterDesktop {
+  
   @media only screen and (max-width: 992px) {
     display: none;
   }

@@ -1,14 +1,34 @@
 @import "src/app/static/style/basic";
 
 .Product {
+display: flex;
+@media only screen and (max-width: 992px) {
+  flex-direction: column;
+}
 
-
-
+.productCenter{
+  display: grid;
+  grid-template-columns: 180px 180px 180px ;
+  grid-column-gap: 10px;
+  
   @media only screen and (max-width: 992px) {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  .Main {
-    width: 100%;
+}
+.filters{
+  width: 100%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  
+}
+.paginate{
+  width: 560px;
+}
+  @media only screen and (max-width: 992px) {
+    padding: 20px;
   }
 }
