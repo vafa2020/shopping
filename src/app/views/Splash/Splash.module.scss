@@ -1,7 +1,7 @@
-@import "src/app/static/style/basic";
+@import "../../static/style/basic.scss";
 
 .Splash {
-
+  margin-top: 20px;
   .SectionOne {
     display: flex;
     background-color: $color-light;
@@ -29,7 +29,6 @@
       flex-direction: column;
       text-align: center;
       @media only screen and (max-width: 992px) {
-
       }
 
       .Title {
@@ -54,9 +53,9 @@
 
       .Button {
         border: none;
-        background-color: $color-dark;
+        background-color: $color-primary;
         color: $color-light;
-        padding: 15px 20px;
+        padding: 10px 25px;
         cursor: pointer;
         border-radius: $dimen-rounded-low;
         @media only screen and (max-width: 992px) {
@@ -65,20 +64,17 @@
         }
       }
     }
-
-
   }
 
   .SectionTwo {
-
+    display: flex;
+    align-items: center;
   }
 
   .SectionThree {
-
   }
 
   .SectionFour {
-
   }
 
   .SectionFive {
@@ -97,7 +93,6 @@
       align-items: center;
       justify-content: center;
       width: 30%;
-
 
       .Image {
         height: 200px;
@@ -150,6 +145,5 @@
         }
       }
     }
-
   }
 }
