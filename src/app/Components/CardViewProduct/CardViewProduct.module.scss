@@ -1,12 +1,14 @@
-@import "src/app/static/style/basic";
+@import "../../static/style/basic.scss";
 
 .CardViewProduct {
   text-align: center;
   margin-top: 20px;
   background-color: $color-light;
-  height: 300px;
+  height: 250px;
   padding: 10px;
   border-radius: $dimen-rounded-low;
+  width: 100%;
+  margin-right: 5px;
   @media only screen and (max-width: 992px) {
     height: 200px;
     padding: initial;
@@ -19,36 +21,31 @@
     }
   }
 
-
   .Description {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: darken($color-grey, 20);
     @media only screen and (max-width: 992px) {
       margin-top: -15px;
     }
 
     .Title {
+      margin: 0;
       @media only screen and (max-width: 992px) {
         font-size: 1.2rem;
         padding-top: 2px;
       }
     }
 
-    .Price {
-      color: $color-green;
-      font-size: 1.2rem;
-    }
-
     .Button {
-      margin-top: 20px;
-      width: 250px;
-      background-color: $color-dark;
+      background-color: $color-primary;
       color: $color-light;
       border-radius: $dimen-rounded-low;
       border: none;
-      padding: 10px;
+      padding: 10px 20px;
       cursor: pointer;
+      margin-top: 10px;
       @media only screen and (max-width: 992px) {
         margin-top: 10px;
         width: 150px;
@@ -56,10 +53,12 @@
       }
 
       &:hover {
-        background-color: $color-orange;
-        padding: 10px;
+        background-color: darken($color-primary, 10);
+        padding: 10px 20px;
       }
     }
   }
-
+}
+:first-child(){
+  margin-right:0;
 }

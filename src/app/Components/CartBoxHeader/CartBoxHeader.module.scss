@@ -3,7 +3,7 @@
 .CartBoxHeader {
   display: flex;
   position: relative;
-  left: -250px;
+  left: -300px;
  
   @media only screen and (max-width: 992px) {
     padding: 0 8px;
@@ -11,7 +11,7 @@
   }
   @media only screen and (max-width: 1024px) {
     padding: 0 8px;
-    left: -70px;
+    left: -150px;
   }
   
   .IconCart {

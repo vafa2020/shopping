@@ -20,17 +20,14 @@ export default function Splash() {
     {
       icon: <FaCheckCircle />,
       title: Constants.ProductWarranty,
-      description: Constants.ProductWarrantyDes,
     },
     {
       icon: <RiTruckFill />,
       title: Constants.FastDelivery,
-      description: Constants.FastDeliveryDes,
     },
     {
       icon: <FaMoneyBillAlt />,
       title: Constants.BestPrices,
-      description: Constants.BestPricesDes,
     },
   ];
   const ListDiscountProduct = [
@@ -50,20 +47,17 @@ export default function Splash() {
   const ListCardViewProduct = [
     {
       source: LaptopAcer01,
-      title: "انواع لپ تاپ",
-      price: `20000000 تومان`,
+      title: "لپ تاپ",
       category: "laptop",
     },
     {
       source: CameraCanon01,
-      title: "انواع دوربین ها",
-      price: `15000000 تومان`,
+      title: "دوربین",
       category: "camera",
     },
     {
       source: WatchApple01,
-      title: "انواع ساعت ها",
-      price: `5000000 تومان`,
+      title: "ساعت",
       category: "watch",
     },
   ];
@@ -72,36 +66,18 @@ export default function Splash() {
       <div className={classes.Splash}>
         <div className={classes.SectionOne}>
           <div className={classes.Description}>
-            <h1 className={classes.Title}>{Constants.ProductNew}</h1>
+            <h1 className={classes.Title}>{Constants.digitalRevolution}</h1>
             <p className={classes.Paragraph}>{Constants.Paragraph}</p>
-            <Link to="/product">
-              <button className={classes.Button}>{Constants.ShopNow}</button>
-            </Link>
-          </div>
-          <div className={classes.BoxImage}>
-            <img className={classes.Image} src={LaptopAcer01} alt="Laptop" />
           </div>
         </div>
         <div className={classes.SectionTwo}>
           <ServicesUs ListServicesUs={ListServicesUs} />
         </div>
         <div className={classes.SectionThree}>
-          <div className={"row"}>
-            {ListDiscountProduct.map((item, index) => (
-              <div key={index} className={"col-md-6 col-xs-12"}>
-                <DiscountProduct data={item} />
-              </div>
-            ))}
-          </div>
+          <DiscountProduct ListDiscountProduct={ListDiscountProduct} />
         </div>
         <div className={classes.SectionFour}>
-          <div className={"row"}>
-            {ListCardViewProduct.map((item, index) => (
-              <div key={index} className={"col-md-4 col-xs-12"}>
-                <CardViewProduct data={item} />
-              </div>
-            ))}
-          </div>
+          <CardViewProduct ListCardViewProduct={ListCardViewProduct} />
         </div>
         <div className={classes.SectionFive}>
           <div className={classes.Description}>

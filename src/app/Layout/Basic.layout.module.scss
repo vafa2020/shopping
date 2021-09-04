@@ -1,5 +1,5 @@
 @import "src/app/static/style/basic";
 
 .BasicLayout {
-  background-color: $color-secondary;
+  background-color:lighten($color-grey,15);
 }

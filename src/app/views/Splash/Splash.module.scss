@@ -2,37 +2,27 @@
 
 .Splash {
   margin-top: 20px;
+  padding: 10px;
   .SectionOne {
     display: flex;
     background-color: $color-light;
     padding: 10px;
     border-radius: $dimen-rounded-low;
 
-    .BoxImage {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 30%;
-
-      .Image {
-        height: 200px;
-        @media only screen and (max-width: 992px) {
-          height: 120px;
-        }
-      }
-    }
-
     .Description {
-      width: 70%;
       display: flex;
       justify-content: center;
       flex-direction: column;
       text-align: center;
+      padding: 5px;
+      color: darken($color-grey, 5);
       @media only screen and (max-width: 992px) {
       }
 
       .Title {
-        color: $color-deep-orange;
+        color: $color-primary;
+        font-weight: bold;
+        margin: 0;
         @media only screen and (max-width: 992px) {
           font-size: 1.2rem;
         }
@@ -40,27 +30,14 @@
 
       .Paragraph {
         text-align: justify;
-        font-size: 1.2rem;
-        line-height: 30px;
+        font-size: 1.1rem;
+        line-height: 25px;
         @media only screen and (max-width: 992px) {
           line-height: 20px;
           font-size: 1rem;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
-        }
-      }
-
-      .Button {
-        border: none;
-        background-color: $color-primary;
-        color: $color-light;
-        padding: 10px 25px;
-        cursor: pointer;
-        border-radius: $dimen-rounded-low;
-        @media only screen and (max-width: 992px) {
-          width: initial;
-          padding: 10px;
+          // text-overflow: ellipsis;
+          // overflow: hidden;
+          // white-space: nowrap;
         }
       }
     }
@@ -69,12 +46,29 @@
   .SectionTwo {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    @media only screen and (max-width: 992px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   .SectionThree {
+    display: flex;
+    align-items: center;
+    @media only screen and (max-width: 992px) {
+      display: none;
+    }
   }
 
   .SectionFour {
+    display: flex;
+    @media only screen and (max-width: 992px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   .SectionFive {
@@ -86,7 +80,7 @@
     border-radius: $dimen-rounded-low;
     overflow: hidden;
     @media only screen and (max-width: 992px) {
-      height: 250px;
+      height: 200px;
     }
     .BoxImage {
       display: flex;
@@ -107,12 +101,14 @@
       flex-direction: column;
       justify-content: center;
       width: 70%;
-      padding: 0 10px;
-      background-color: $color-accent;
+      padding: 0 15px;
+      background-color:lighten( $color-primary, 30);
       text-align: center;
 
       .Title {
-        color: $color-deep-orange;
+        color: $color-light;
+        font-weight: bold;
+        margin: 0;
         @media only screen and (max-width: 992px) {
           font-size: 1.2rem;
         }
@@ -123,20 +119,19 @@
         font-size: 1.2rem;
         line-height: 30px;
         @media only screen and (max-width: 992px) {
-          line-height: 20px;
+          line-height: 15px;
           font-size: 1rem;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
+          // text-overflow: ellipsis;
+          // overflow: hidden;
+          // white-space: nowrap;
         }
       }
 
       .Button {
         border: none;
-        background-color: $color-dark;
+        background-color: $color-primary;
         color: $color-light;
-        width: 250px;
-        padding: 15px;
+        padding: 15px 50px;
         cursor: pointer;
         border-radius: $dimen-rounded-low;
         @media only screen and (max-width: 992px) {
