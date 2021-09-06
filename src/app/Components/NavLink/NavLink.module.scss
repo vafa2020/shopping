@@ -18,20 +18,27 @@
   }
 
   .Item {
+    transition: 1s ease;
     list-style: none;
     padding: 10px;
-
+    margin-left: 5px;
+   
+    &:hover {
+      background-color: lighten($color-primary, 20);
+      border-radius: $dimen-rounded-low;
+      color: #fff;
+    }
     .Link {
       font-size: 1.2rem;
       color: $color-primary;
       text-decoration: none;
+      &:hover{
+        color: #fff;
+      }
       @media only screen and (max-width: 992px) {
         color: $color-light;
       }
 
-      &:hover {
-        color: $color-primary;
-      }
     }
   }
 }

@@ -1,37 +1,44 @@
 import React from "react";
-import { create } from 'jss';
-import rtl from 'jss-rtl';
-import {StylesProvider, jssPreset, ThemeProvider} from '@material-ui/core/styles';
-import {createMuiTheme} from "@material-ui/core";
+import { create } from "jss";
+import rtl from "jss-rtl";
+import {
+  StylesProvider,
+  jssPreset,
+  ThemeProvider,
+} from "@material-ui/core/styles";
+import { createMuiTheme } from "@material-ui/core";
 import Routing from "./utils/Routing";
+import StateManagerFilter from "./utils/StateManagerFilter";
 
 // Configure JSS
-const jss = create({plugins: [...jssPreset().plugins, rtl()]});
+const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 const theme = createMuiTheme({
-    palette: {
-        primary: {
-            // Purple and green play nicely together.
-            main: '#E6EEFB',
-        },
-        secondary: {
-            // This is green.A700 as hex.
-            main: '#FF5722',
-        },
+  palette: {
+    primary: {
+      // Purple and green play nicely together.
+      main: "#E6EEFB",
     },
-    direction: 'rtl',
-    typography: {
-        fontFamily: 'IRANSans'
-    }
+    secondary: {
+      // This is green.A700 as hex.
+      main: "#FF5722",
+    },
+  },
+  direction: "rtl",
+  typography: {
+    fontFamily: "IRANSans",
+  },
 });
 
 function App() {
-    return (
-        <StylesProvider jss={jss}>
-            <ThemeProvider theme={theme}>
-                <Routing/>
-            </ThemeProvider>
-        </StylesProvider>
-    );
+  return (
+    <StylesProvider jss={jss}>
+      <ThemeProvider theme={theme}>
+        <StateManagerFilter>
+          <Routing />
+        </StateManagerFilter>
+      </ThemeProvider>
+    </StylesProvider>
+  );
 }
 
 export default App;

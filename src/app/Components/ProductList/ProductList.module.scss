@@ -2,17 +2,15 @@
 
 .ProductList {
   height: 280px;
-  width: 100%;
   background-color: $color-light;
-  margin: 10px 0;
   border-radius: $dimen-rounded-low;
   @media only screen and (max-width: 992px) {
     height: 250px;
+    margin-top: 20px;
   }
 
   .Header {
     display: flex;
-    align-items: center;
     justify-content: center;
     position: relative;
 
@@ -80,14 +78,15 @@
       border-radius: $dimen-rounded-low;
       padding: 10px 25px;
       border: none;
-      background-color: lighten($color-primary, 10);
+      background-color: lighten($color-primary, 20);
       color: $color-light;
+      cursor: pointer;
       @media only screen and (max-width: 992px) {
         margin-top: 10px;
       }
       &:hover {
-        background-color: $color-deep-orange;
-        color: $color-light;
+        background-color:$color-primary
+        
       }
     }
   }

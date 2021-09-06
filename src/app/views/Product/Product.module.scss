@@ -1,34 +1,56 @@
 @import "src/app/static/style/basic";
 
 .Product {
-display: flex;
-@media only screen and (max-width: 992px) {
-  flex-direction: column;
-}
-
-.productCenter{
-  display: grid;
-  grid-template-columns: 180px 180px 180px ;
-  grid-column-gap: 10px;
-  
+  display: flex;
+  padding-top: 10px;
   @media only screen and (max-width: 992px) {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding: 10px 10px;
   }
 
+  .productCenter {
+    display: grid;
+    grid-template-columns: 180px 180px 180px;
+    grid-column-gap: 50px;
+    position: relative;
+
+    @media only screen and (max-width: 992px) {
+      display: flex;
+      grid-column-gap: 30px !important;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  .filters {
+    width: 100%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .paginate {
+    width: 560px;
+    position: absolute;
+    bottom: -9px;
+    left: 43px;
+    display: block;
+    @media only screen and (max-width: 1024) {
+      left: 30px;
+    }
+    @media only screen and (max-width: 992px) {
+      position: static;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
 }
-.filters{
-  width: 100%;
-  margin-left: 10px;
-  display: flex;
-  flex-direction: column;
-  
-}
-.paginate{
-  width: 560px;
-}
-  @media only screen and (max-width: 992px) {
-    padding: 20px;
+
+@media only screen and (max-width: 1024) {
+  .productCenter {
+    display: grid;
+    grid-template-columns: 180px 180px 180px;
+    grid-column-gap: 30px;
+    position: relative;
   }
 }

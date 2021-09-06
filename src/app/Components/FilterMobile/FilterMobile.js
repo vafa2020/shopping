@@ -21,7 +21,7 @@ export default function FilterMobile() {
           <RiFilter2Fill className={classes.FilterIcon} />
         </Button>
       </div>
-      {filter && <Filter />}
+      {filter && <Filter setFilter={setFilter} filter={filter} />}
     </div>
   );
 }

@@ -4,24 +4,27 @@ import ProductList from "../../Components/ProductList/ProductList";
 import PaginationCom from "../../Components/PaginationCom/Pagination";
 import FilterMobile from "../../Components/FilterMobile/FilterMobile";
 import FilterDesktop from "../../Components/FilterDesktop/FilterDesktop";
-import { ProductDataList } from "../../data/Product.data";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Category } from "../../servics/Product.services";
+import { UseFilter, UseFilterAction } from "../../utils/StateManagerFilter";
 
 const Product = () => {
-  const [products, setProducts] = useState(ProductDataList);
+  const dispatch = UseFilterAction();
+  const product = UseFilter();
+  const [products, setProducts] = useState(product);
   const { category } = useParams();
   useEffect(() => {
-    const res = Category(category, ProductDataList);
-    setProducts(res);
+    setProducts(product);
+  }, [product]);
+  useEffect(() => {
+    dispatch({ type: "filterCategory",  category });
   }, [category]);
   const [currentPage, setCurrentPage] = useState(1);
   const [dataPerPage] = useState(6);
 
   const indexOfLastData = currentPage * dataPerPage;
   const indexOfFirstData = indexOfLastData - dataPerPage;
-  const currentData = products.slice(indexOfFirstData, indexOfLastData);
+  const currentData = products?.slice(indexOfFirstData, indexOfLastData);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -38,7 +41,7 @@ const Product = () => {
           ))}
           <div className={classes.paginate}>
             <PaginationCom
-              totalData={products.length}
+              totalData={products?.length}
               dataPerPage={dataPerPage}
               paginate={paginate}
             />
@@ -49,3 +52,6 @@ const Product = () => {
   );
 };
 export default Product;
+
+// allProducts => filter category : All,mobile,...
+// state => 30 => color : yellow => state.filter(p => p.color === "yelllow")
