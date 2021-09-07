@@ -17,6 +17,7 @@ export default function NavLink({ setOpen, open }) {
         <li
           key={index}
           className={classes.Item}
+          onClick={()=>setOpen(!open)}
       
         >
           <Link to={link.to} className={classes.Link}>

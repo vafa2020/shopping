@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { UseFilterAction } from "../../utils/StateManagerFilter";
 import { useParams } from "react-router-dom";
 
-export default function Filter() {
+export default function Filter({ setFilter, filter }) {
   const { category } = useParams();
   const dispatch = UseFilterAction();
   const [sortValue, setSortValue] = useState("");
@@ -56,8 +56,12 @@ export default function Filter() {
             className={classes.Select}
             name="sortByPrice"
             value={sortValue}
-            onChange={sortHandler}
+            onChange={(e) => {
+              sortHandler(e);
+              setFilter(!filter);
+            }}
           >
+            <option value="">انتخاب کنید</option>
             <option value="asc">صعودی</option>
             <option value="desc">نزولی</option>
           </select>
@@ -73,7 +77,10 @@ export default function Filter() {
             className={classes.Select}
             name="sortByPrice"
             value={colorValue}
-            onChange={colorHandler}
+            onChange={(e) => {
+              colorHandler(e);
+              setFilter(!filter);
+            }}
           >
             <option value="">انتخاب کنید</option>
             <option value="white">سفید</option>
@@ -99,7 +106,10 @@ export default function Filter() {
             className={classes.Select}
             name="sortByPrice"
             value={modelValue}
-            onChange={modelHandler}
+            onChange={(e) => {
+              modelHandler(e);
+              setFilter(!filter);
+            }}
           >
             <option value="">انتخاب کنید</option>
             <option value="acer">acer</option>
@@ -124,7 +134,10 @@ export default function Filter() {
               min="2000000"
               step="500000"
               value={rangPriceValue}
-              onChange={rangPriceHandler}
+              onChange={(e) => {
+                rangPriceHandler(e);
+                setFilter(!filter);
+              }}
             />
           </div>
         </div>

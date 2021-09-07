@@ -11,7 +11,9 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "sort": {
       const priceProduct = [...state];
-      if (action.sort === "asc") {
+      if (!action.sort) {
+        return priceProduct;
+      } else if (action.sort === "asc") {
         return _.orderBy(priceProduct, ["price"], ["asc"]);
       }
       return _.orderBy(priceProduct, ["price"], ["desc"]);
