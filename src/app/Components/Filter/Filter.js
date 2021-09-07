@@ -1,40 +1,46 @@
 import classes from "./Filter.module.scss";
 import React, { useState } from "react";
 import { UseFilterAction } from "../../utils/StateManagerFilter";
+import { useParams } from "react-router-dom";
 
 export default function Filter() {
+  const { category } = useParams();
   const dispatch = UseFilterAction();
   const [sortValue, setSortValue] = useState("");
   const [colorValue, setColorValue] = useState("");
   const [modelValue, setModelValue] = useState("");
-  const [rangPriceValue, setRangPriceValue] = useState(200000)
+  const [rangPriceValue, setRangPriceValue] = useState(200000);
   const sortHandler = (event) => {
-    console.log(event.target.value);
+    dispatch({ type: "filterRangPrice", rangPrice: rangPriceValue });
+    dispatch({ type: "filterColor", color: colorValue });
+    dispatch({ type: "filterCategory", category });
+    dispatch({ type: "filterModel", model: modelValue });
     dispatch({ type: "sort", sort: event.target.value });
     setSortValue(event.target.value);
   };
   const colorHandler = (event) => {
-    console.log(event.target.value);
-    dispatch({ type: "filterColor", color: event.target.value });
+    dispatch({ type: "filterRangPrice", rangPrice: rangPriceValue });
     dispatch({ type: "sort", sort: sortValue });
+    dispatch({ type: "filterCategory", category });
+    dispatch({ type: "filterModel", model: modelValue });
+    dispatch({ type: "filterColor", color: event.target.value });
     setColorValue(event.target.value);
   };
 
   const modelHandler = (event) => {
-    console.log(event.target.value);
-    dispatch({ type: "filterModel", model: event.target.value });
+    dispatch({ type: "filterRangPrice", rangPrice: rangPriceValue });
     dispatch({ type: "filterColor", color: colorValue });
     dispatch({ type: "sort", sort: sortValue });
+    dispatch({ type: "filterCategory", category });
+    dispatch({ type: "filterModel", model: event.target.value });
     setModelValue(event.target.value);
   };
   const rangPriceHandler = (event) => {
-    console.log(event.target.value);
-    // dispatch({type:"filterCategory",categroy : sdsd})
-
-    dispatch({ type: "filterRangPrice", rangPrice: event.target.value });
     dispatch({ type: "filterModel", model: modelValue });
     dispatch({ type: "filterColor", color: colorValue });
     dispatch({ type: "sort", sort: sortValue });
+    dispatch({ type: "filterCategory", category });
+    dispatch({ type: "filterRangPrice", rangPrice: event.target.value });
     setRangPriceValue(event.target.value);
   };
 

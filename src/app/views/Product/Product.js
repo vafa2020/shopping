@@ -17,6 +17,7 @@ const Product = () => {
     setProducts(product);
   }, [product]);
   useEffect(() => {
+
     dispatch({ type: "filterCategory",  category });
   }, [category]);
   const [currentPage, setCurrentPage] = useState(1);
