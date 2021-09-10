@@ -46,9 +46,10 @@ export default function Filter({ setFilter, filter }) {
             value={sortValue}
             onChange={(e) => {
               sortHandler(e);
-              // setFilter(!filter);
+              setFilter(!filter);
             }}
           >
+            <option value="">انتخاب کنید</option>
             <option value="asc">صعودی</option>
             <option value="desc">نزولی</option>
           </select>
@@ -66,7 +67,7 @@ export default function Filter({ setFilter, filter }) {
             value={colorValue}
             onChange={(e) => {
               colorHandler(e);
-              // setFilter(!filter);
+              setFilter(!filter);
             }}
           >
             <option value="">انتخاب کنید</option>
@@ -95,7 +96,7 @@ export default function Filter({ setFilter, filter }) {
             value={modelValue}
             onChange={(e) => {
               modelHandler(e);
-              // setFilter(!filter);
+              setFilter(!filter);
             }}
           >
             <option value="">انتخاب کنید</option>
@@ -123,7 +124,7 @@ export default function Filter({ setFilter, filter }) {
               value={rangPriceValue}
               onChange={(e) => {
                 rangPriceHandler(e);
-                // setFilter(!filter);
+                setFilter(!filter);
               }}
             />
           </div>

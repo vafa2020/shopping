@@ -10,13 +10,14 @@ const LinkData = [
   { to: "/product/camera", value: Constants.Camera },
   { to: "/product/watch", value: Constants.Watch },
 ];
-export default function NavLink() {
+export default function NavLinkMobile({ setOpen, open }) {
   return (
     <ul className={classes.Items}>
       {LinkData.map((link, index) => (
         <li
           key={index}
           className={classes.Item}
+          onClick={()=>setOpen(!open)}
       
         >
           <Link to={link.to} className={classes.Link}>

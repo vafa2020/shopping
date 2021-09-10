@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from "./NavigationMobile.module.scss";
-import NavLink from "../NavLink/NavLink";
 import { CgCloseO, CgMenuRound } from "react-icons/all";
+import NavLinkMobile from "../NavLink/NavLinkMobile";
 
 export default function NavigationMobile() {
   const [open, setOpen] = useState(false);
@@ -24,7 +24,7 @@ export default function NavigationMobile() {
   return (
     <nav className={classes.NavigationMobile}>
       {open ? closeIcon : openIcon}
-      {open && <NavLink setOpen={setOpen} open={open}/>}
+      {open && <NavLinkMobile setOpen={setOpen} open={open}/>}
     </nav>
   );
 }
