@@ -11,14 +11,13 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "sort": {
       const priceProduct = [...state];
-      if (!action.sort) {
-        return priceProduct;
-      } else if (action.sort === "asc") {
-        return _.orderBy(priceProduct, ["price"], ["asc"]);
+      if (action.sort === "asc") {
+        return _.orderBy(priceProduct, ["price"], ["desc"]);
       }
-      return _.orderBy(priceProduct, ["price"], ["desc"]);
+      return _.orderBy(priceProduct, ["price"], ["asc"]);
     }
     case "filterColor": {
+      console.log(action.color);
       const cloneProduct = [...state];
       if (!action.color) {
         return cloneProduct;

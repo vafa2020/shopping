@@ -11,34 +11,22 @@ export default function Filter({ setFilter, filter }) {
   const [modelValue, setModelValue] = useState("");
   const [rangPriceValue, setRangPriceValue] = useState(200000);
   const sortHandler = (event) => {
-    dispatch({ type: "filterRangPrice", rangPrice: rangPriceValue });
-    dispatch({ type: "filterColor", color: colorValue });
     dispatch({ type: "filterCategory", category });
-    dispatch({ type: "filterModel", model: modelValue });
     dispatch({ type: "sort", sort: event.target.value });
     setSortValue(event.target.value);
   };
   const colorHandler = (event) => {
-    dispatch({ type: "filterRangPrice", rangPrice: rangPriceValue });
-    dispatch({ type: "sort", sort: sortValue });
     dispatch({ type: "filterCategory", category });
-    dispatch({ type: "filterModel", model: modelValue });
     dispatch({ type: "filterColor", color: event.target.value });
     setColorValue(event.target.value);
   };
 
   const modelHandler = (event) => {
-    dispatch({ type: "filterRangPrice", rangPrice: rangPriceValue });
-    dispatch({ type: "filterColor", color: colorValue });
-    dispatch({ type: "sort", sort: sortValue });
     dispatch({ type: "filterCategory", category });
     dispatch({ type: "filterModel", model: event.target.value });
     setModelValue(event.target.value);
   };
   const rangPriceHandler = (event) => {
-    dispatch({ type: "filterModel", model: modelValue });
-    dispatch({ type: "filterColor", color: colorValue });
-    dispatch({ type: "sort", sort: sortValue });
     dispatch({ type: "filterCategory", category });
     dispatch({ type: "filterRangPrice", rangPrice: event.target.value });
     setRangPriceValue(event.target.value);
@@ -58,10 +46,9 @@ export default function Filter({ setFilter, filter }) {
             value={sortValue}
             onChange={(e) => {
               sortHandler(e);
-              setFilter(!filter);
+              // setFilter(!filter);
             }}
           >
-            <option value="">انتخاب کنید</option>
             <option value="asc">صعودی</option>
             <option value="desc">نزولی</option>
           </select>
@@ -79,7 +66,7 @@ export default function Filter({ setFilter, filter }) {
             value={colorValue}
             onChange={(e) => {
               colorHandler(e);
-              setFilter(!filter);
+              // setFilter(!filter);
             }}
           >
             <option value="">انتخاب کنید</option>
@@ -108,7 +95,7 @@ export default function Filter({ setFilter, filter }) {
             value={modelValue}
             onChange={(e) => {
               modelHandler(e);
-              setFilter(!filter);
+              // setFilter(!filter);
             }}
           >
             <option value="">انتخاب کنید</option>
@@ -136,7 +123,7 @@ export default function Filter({ setFilter, filter }) {
               value={rangPriceValue}
               onChange={(e) => {
                 rangPriceHandler(e);
-                setFilter(!filter);
+                // setFilter(!filter);
               }}
             />
           </div>
