@@ -8,7 +8,6 @@ import {
 } from "@material-ui/core/styles";
 import { createMuiTheme } from "@material-ui/core";
 import Routing from "./utils/Routing";
-import StateManagerFilter from "./utils/StateManagerFilter";
 
 // Configure JSS
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
@@ -33,9 +32,7 @@ function App() {
   return (
     <StylesProvider jss={jss}>
       <ThemeProvider theme={theme}>
-        <StateManagerFilter>
-          <Routing />
-        </StateManagerFilter>
+        <Routing />
       </ThemeProvider>
     </StylesProvider>
   );

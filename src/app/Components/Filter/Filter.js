@@ -1,11 +1,11 @@
 import classes from "./Filter.module.scss";
 import React, { useState } from "react";
-import { UseFilterAction } from "../../utils/StateManagerFilter";
+import { useProductAction } from "../../utils/StateManagerProduct";
 import { useParams } from "react-router-dom";
 
 export default function Filter({ setFilter, filter }) {
   const { category } = useParams();
-  const dispatch = UseFilterAction();
+  const dispatch = useProductAction();
   const [sortValue, setSortValue] = useState("");
   const [colorValue, setColorValue] = useState("");
   const [modelValue, setModelValue] = useState("");

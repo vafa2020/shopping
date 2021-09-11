@@ -1,12 +1,12 @@
 import classes from "./FilterDesktop.module.scss";
 import React, { useState } from "react";
-import { UseFilterAction } from "../../utils/StateManagerFilter";
 import { useParams } from "react-router-dom";
+import { useProductAction } from "../../utils/StateManagerProduct";
 
 
 export default function FilterDesktop() {
   const { category } = useParams();
-  const dispatch = UseFilterAction();
+  const dispatch = useProductAction();
   const [sortValue, setSortValue] = useState("");
   const [colorValue, setColorValue] = useState("");
   const [modelValue, setModelValue] = useState("");

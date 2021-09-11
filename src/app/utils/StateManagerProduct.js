@@ -9,6 +9,42 @@ const filterContextDispatch = createContext();
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "singleProduct": {
+      const getItem = JSON.parse(localStorage.getItem("product"));
+      return getItem;
+    }
+    case "addToCart": {
+      const index = ProductDataList.findIndex((p) => p.id === action.value);
+      const selectObject = { ...ProductDataList[index] };
+      const item = { id: action.value, qty: 1 };
+      const Product = [{ ...selectObject, ...item }];
+      localStorage.setItem("product", JSON.stringify(Product));
+    }
+    case "increment": {
+      const getItem = JSON.parse(localStorage.getItem("product"));
+     console.log(getItem);
+    }
+
+    case "decrement": {
+      const index = ProductDataList.findIndex((p) => p.id === action.value);
+      const selectObject = { ...ProductDataList[index] };
+      if (selectObject.qty === 1) {
+        const deleteObject = ProductDataList.filter(
+          (p) => p.id !== action.value
+        );
+        return deleteObject;
+      }
+      selectObject.qty--;
+      const updateProduct = [...ProductDataList];
+      updateProduct[index] = selectObject;
+      return updateProduct;
+    }
+    case "delete": {
+      const deleteProduct = ProductDataList.filter(
+        (p) => p.id !== action.value
+      );
+      return deleteProduct;
+    }
     case "sort": {
       const priceProduct = [...state];
       if (!action.type) {
@@ -57,7 +93,7 @@ const reducer = (state, action) => {
   }
 };
 
-const StateManagerFilter = ({ children }) => {
+const StateManagerProduct = ({ children }) => {
   const [product, dispatch] = useReducer(reducer, ProductDataList);
 
   return (
@@ -68,10 +104,10 @@ const StateManagerFilter = ({ children }) => {
     </filterContext.Provider>
   );
 };
-export default StateManagerFilter;
+export default StateManagerProduct;
 
-export const UseFilter = () => useContext(filterContext);
-export const UseFilterAction = () => useContext(filterContextDispatch);
+export const useProduct = () => useContext(filterContext);
+export const useProductAction = () => useContext(filterContextDispatch);
 
 // color : yellow => ? All => 100
 // color : yellow => phone : 30

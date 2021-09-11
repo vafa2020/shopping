@@ -1,5 +1,5 @@
 import classes from "./ProductList.module.scss";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Rating from "@material-ui/lab/Rating";
 import Box from "@material-ui/core/Box";
 import { FcLike } from "react-icons/fc";
@@ -8,10 +8,10 @@ import { Link } from "react-router-dom";
 import { Constants } from "../../values/Constants";
 import { Helper } from "scriptpack";
 import { BiHeart, HiOutlineBookmark } from "react-icons/all";
-import { StateManagement } from "../../utils/StateManagment";
+import { useProductAction } from "../../utils/StateManagerProduct";
 
 export default function ProductList({ data }) {
-  const { stateManager, setStateManager } = useContext(StateManagement);
+  const dispatch=useProductAction()
   const [like, setLike] = useState(false);
   const [bookmark, setBookmark] = useState(false);
 
@@ -43,21 +43,14 @@ export default function ProductList({ data }) {
           <Box component="fieldset" mb={3} borderColor="transparent">
             <Rating
               name="simple-controlled"
-              value={stateManager.currentActiveStar}
-              onChange={(event, newValue) => {
-                setStateManager({
-                  ...stateManager,
-                  currentActiveStar: newValue,
-                });
-              }}
             />
           </Box>
         </div>
         <span className={classes.Price}>
           {Helper.toCurrencyFormat(data.price)}
         </span>
-        <Link to={`/productDetails/${data.id}`}>
-          <button className={classes.button}>{Constants.ViewItem}</button>
+        <Link to={`/cartBox/${data.id}`}>
+          <button className={classes.button} onClick={()=>dispatch({type:"addToCart",value:data.id})} >{Constants.AddToCart}</button>
         </Link>
       </div>
     </div>
