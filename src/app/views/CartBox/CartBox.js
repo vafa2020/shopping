@@ -28,7 +28,7 @@ export default function CartBox() {
   return (
     <BasicLayout>
       <div className={classes.Container}>
-        {product.length === "" ? (
+        {product ? (
           <div className={classes.Empty}>
             <FcFullTrash className={classes.IconEmpty} />
             <span className={classes.textEmpty}>{Constants.Empty}</span>
