@@ -4,113 +4,189 @@ import { ProductDataList } from "../data/Product.data";
 import { useContext, useReducer } from "react";
 import { CategoryData } from "../data/Category.data";
 
-const filterContext = createContext();
-const filterContextDispatch = createContext();
+const productContext = createContext();
+const productContextDispatch = createContext();
 
+const initialState = {
+  cart: [],
+  totalPrice: 0,
+  products: [],
+};
 const reducer = (state, action) => {
   switch (action.type) {
-    case "singleProduct": {
-      const getItem = JSON.parse(localStorage.getItem("product"));
-      return getItem;
-    }
     case "addToCart": {
-      const index = ProductDataList.findIndex((p) => p.id === action.value);
-      const selectObject = { ...ProductDataList[index] };
-      const item = { id: action.value, qty: 1 };
-      const Product = [{ ...selectObject, ...item }];
-      localStorage.setItem("product", JSON.stringify(Product));
+      const updatedCart = [...state.cart];
+      const updatedItemIndex = updatedCart.findIndex(
+        (item) => item.id === action.value.id
+      );
+
+      if (updatedItemIndex < 0) {
+        updatedCart.push({ ...action.value, quantity: 1 });
+      } else {
+        const updatedItem = { ...updatedCart[updatedItemIndex] };
+        updatedItem.quantity++;
+        updatedCart[updatedItemIndex] = updatedItem;
+      }
+      return {
+        ...state,
+        cart: updatedCart,
+        total: state.totalPrice + action.value.price,
+      };
+    }
+    case "decrement": {
+      const updatedCart = [...state.cart];
+      const updatedItemIndex = updatedCart.findIndex(
+        (item) => item.id === action.value
+      );
+      const updatedItem = { ...updatedCart[updatedItemIndex] };
+      if (updatedItem.quantity === 1) {
+        const filteredCart = updatedCart.filter(
+          (item) => item.id !== action.value
+        );
+        return {
+          ...state,
+          cart: filteredCart,
+          total: state.totalPrice - action.value.price,
+        };
+      } else {
+        updatedItem.quantity--;
+        updatedCart[updatedItemIndex] = updatedItem;
+        return {
+          ...state,
+          cart: updatedCart,
+          total: state.total - action.value.price,
+        };
+      }
     }
     case "increment": {
-      const getItem = JSON.parse(localStorage.getItem("product"));
-     console.log(getItem);
+      const updatedCart = [...state.cart];
+      const updatedItemIndex = updatedCart.findIndex(
+        (item) => item.id === action.value
+      );
+      const updatedItem = { ...updatedCart[updatedItemIndex] };
+      updatedItem.quantity++;
+      updatedCart[updatedItemIndex] = updatedItem;
+      return {
+        ...state,
+        cart: updatedCart,
+        total: state.totalPrice + action.value.price,
+      };
     }
-
-    case "decrement": {
-      const index = ProductDataList.findIndex((p) => p.id === action.value);
-      const selectObject = { ...ProductDataList[index] };
-      if (selectObject.qty === 1) {
-        const deleteObject = ProductDataList.filter(
-          (p) => p.id !== action.value
-        );
-        return deleteObject;
+    case "filterCategory": {
+      let updateProduct = [...state.products];
+      if (!action.value) {
+        updateProduct = ProductDataList.slice(0, 9);
+        return {
+          ...state,
+          products: updateProduct,
+        };
       }
-      selectObject.qty--;
-      const updateProduct = [...ProductDataList];
-      updateProduct[index] = selectObject;
-      return updateProduct;
+      const categoryItem = CategoryData.find(
+        (x) => x.latinTitle === action.value
+      );
+      updateProduct = ProductDataList.filter(
+        (p) => p.categoryId === categoryItem.id
+      );
+      return {
+        ...state,
+        products: updateProduct,
+      };
     }
     case "delete": {
-      const deleteProduct = ProductDataList.filter(
+      const updateCart=[...state.cart]
+      const deleteProduct = updateCart.filter(
         (p) => p.id !== action.value
       );
-      return deleteProduct;
+      return {
+        ...state,
+        cart: deleteProduct,
+      };
     }
     case "sort": {
-      const priceProduct = [...state];
-      if (!action.type) {
-        return priceProduct;
+      let priceProduct = [...state.products];
+      if (!action.sort) {
+        return {
+          ...state,
+          products: state.products,
+        };
       } else if (action.sort === "asc") {
-        return _.orderBy(priceProduct, ["price"], ["desc"]);
+        priceProduct = _.orderBy(state.products, ["price"], ["desc"]);
+        return {
+          ...state,
+          products: priceProduct,
+        };
       }
-      return _.orderBy(priceProduct, ["price"], ["asc"]);
+      priceProduct = _.orderBy(state.products, ["price"], ["asc"]);
+      return {
+        ...state,
+        products: priceProduct,
+      };
     }
     case "filterColor": {
-      const cloneProduct = [...state];
+      const cloneProduct = [...state.products];
       if (!action.color) {
-        return cloneProduct;
+        return {
+          ...state,
+          products: cloneProduct,
+        };
       }
       const filteredColor = cloneProduct.filter(
         (p) => p.color === action.color
       );
-      return filteredColor;
+      return {
+        ...state,
+        products: filteredColor,
+      };
     }
     case "filterModel": {
-      const updateProduct = [...state];
+      const updateProduct = [...state.products];
       if (!action.model) {
-        return updateProduct;
+        return {
+          ...state,
+          products: updateProduct,
+        };
       }
       const filteredModel = updateProduct.filter(
         (p) => p.model === action.model
       );
-      return filteredModel;
+      return {
+        ...state,
+        products: filteredModel,
+      };
     }
     case "filterRangPrice": {
-      const cloneProduct = [...state];
+      const cloneProduct = [...state.products];
       const filterdrangPrice = cloneProduct.filter(
         (p) => p.price <= action.rangPrice
       );
-      return filterdrangPrice;
+      return {
+        ...state,
+        products: filterdrangPrice,
+      };
     }
-    case "filterCategory": {
-      if (!action.category) return ProductDataList;
-      const categoryItem = CategoryData.find(
-        (x) => x.latinTitle === action.category
-      );
-      return ProductDataList.filter((p) => p.categoryId === categoryItem.id);
-    }
+
     default:
-      return ProductDataList;
+      return {
+        ...state,
+        cart: [],
+        total: 0,
+        products: [...ProductDataList.slice(-6)],
+      };
   }
 };
 
 const StateManagerProduct = ({ children }) => {
-  const [product, dispatch] = useReducer(reducer, ProductDataList);
+  const [product, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <filterContext.Provider value={product}>
-      <filterContextDispatch.Provider value={dispatch}>
+    <productContext.Provider value={product}>
+      <productContextDispatch.Provider value={dispatch}>
         {children}
-      </filterContextDispatch.Provider>
-    </filterContext.Provider>
+      </productContextDispatch.Provider>
+    </productContext.Provider>
   );
 };
 export default StateManagerProduct;
 
-export const useProduct = () => useContext(filterContext);
-export const useProductAction = () => useContext(filterContextDispatch);
-
-// color : yellow => ? All => 100
-// color : yellow => phone : 30
-// state : products : 1000
-// sort, filter, remove,price,...
-// state : 100 => category, inc , dec, search ,...
+export const useProduct = () => useContext(productContext);
+export const useProductAction = () => useContext(productContextDispatch);

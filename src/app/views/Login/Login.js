@@ -28,7 +28,7 @@ export default function Login() {
             password: field.password
         })
         console.log(res)
-        if (res.data == "Error") {
+        if (res.data === "Error") {
             toast.error('ورود موفقیت آمیز نبود')
 
         } else {

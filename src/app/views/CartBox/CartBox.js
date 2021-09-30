@@ -1,6 +1,5 @@
 import classes from "./CartBox.module.scss";
 import BasicLayout from "../../Layout/Basic.layout";
-import { useEffect, useState } from "react";
 import { Helper } from "scriptpack";
 import {
   AiOutlineMinus,
@@ -14,27 +13,18 @@ import { useProductAction } from "../../utils/StateManagerProduct";
 import { useProduct } from "../../utils/StateManagerProduct";
 export default function CartBox() {
   const dispatch = useProductAction();
-  const product = useProduct();
-
-  useEffect(() => {
-    dispatch({ type: "singleProduct" });
-  }, []);
-
-  //   const calculator = () => {
-  //     return data.reduce((acc, cur) => {
-  //       return acc + cur.price * cur.qty;
-  //     }, 0);
-  //   };
+  const { cart, totalPrice } = useProduct();
+  console.log(cart, totalPrice);
   return (
     <BasicLayout>
       <div className={classes.Container}>
-        {product ? (
+        {!cart ? (
           <div className={classes.Empty}>
             <FcFullTrash className={classes.IconEmpty} />
             <span className={classes.textEmpty}>{Constants.Empty}</span>
           </div>
         ) : (
-          product.map((item) => (
+          cart.map((item) => (
             <div key={item.id} className={classes.Product}>
               <Link to={`/productDetails/${item.id}`}>
                 <img className={classes.Image} src={item.source} alt="" />
@@ -44,7 +34,6 @@ export default function CartBox() {
                 <div className={classes.BoxPrice}>
                   <span className={classes.Text}>قیمت</span>
                   <span className={classes.Price}>
-                    {" "}
                     {Helper.toCurrencyFormat(item.price)}
                   </span>
                 </div>
@@ -64,7 +53,7 @@ export default function CartBox() {
                   >
                     <AiOutlinePlus />
                   </button>
-                  <span className={classes.Quantity}>{item.qty}</span>
+                  <span className={classes.Quantity}>{item.quantity}</span>
                   <button
                     className={classes.Mines}
                     onClick={() => {
@@ -86,26 +75,13 @@ export default function CartBox() {
             </div>
           ))
         )}
-   
+        {totalPrice && (
+          <div className={classes.BoxPrice}>
+            <span className={classes.Price}>{totalPrice}</span>
+            <span className={classes.Text}>totalPrice</span>
+          </div>
+        )}
       </div>
     </BasicLayout>
   );
 }
-
-
-
-
-
-
-     {/* {TotalPrice === 0 ? (
-          ""
-        ) : (
-          <div className={classes.BoxTotalPrice}>
-            <span className={classes.TotalPriceText}>
-              {Constants.TotalPrice}
-            </span>
-            <span className={classes.TotalPrice}>
-              {Helper.toCurrencyFormat(TotalPrice)}
-            </span>
-          </div>
-        )} */}

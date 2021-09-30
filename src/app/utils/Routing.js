@@ -17,7 +17,7 @@ export default function Routing() {
           <Route path="/product/:category">
             <Product />
           </Route>
-          <Route path="/cartBox/:id">
+          <Route path="/cartBox">
             <CartBox />
           </Route>
           <Route path="/product" exact>

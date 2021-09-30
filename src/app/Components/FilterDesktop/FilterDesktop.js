@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useProductAction } from "../../utils/StateManagerProduct";
 
-
 export default function FilterDesktop() {
   const { category } = useParams();
   const dispatch = useProductAction();
@@ -12,6 +11,7 @@ export default function FilterDesktop() {
   const [modelValue, setModelValue] = useState("");
   const [rangPriceValue, setRangPriceValue] = useState(200000);
   const sortHandler = (event) => {
+    
     dispatch({ type: "filterCategory", category });
     dispatch({ type: "sort", sort: event.target.value });
     setSortValue(event.target.value);
