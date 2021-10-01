@@ -21,12 +21,7 @@ export default function CartBox() {
   return (
     <BasicLayout>
       <div className={classes.Container}>
-        {!cart ? (
-          <div className={classes.Empty}>
-            <FcFullTrash className={classes.IconEmpty} />
-            <span className={classes.textEmpty}>{Constants.Empty}</span>
-          </div>
-        ) : (
+        {cart.length ? (
           cart.map((item) => (
             <div key={item.id} className={classes.Product}>
               <Link to={`/productDetails/${item.id}`}>
@@ -69,7 +64,7 @@ export default function CartBox() {
               </div>
               <button
                 onClick={() => {
-                  dispatch({ type: "delete", value: item.id });
+                  dispatch({ type: "delete", value: item });
                 }}
                 className={classes.Trash}
               >
@@ -77,8 +72,13 @@ export default function CartBox() {
               </button>
             </div>
           ))
+        ) : (
+          <div className={classes.Empty}>
+            <FcFullTrash className={classes.IconEmpty} />
+            <span className={classes.textEmpty}>{Constants.Empty}</span>
+          </div>
         )}
-        {totalPrice > 0 && (
+        {totalPrice>0 && (
           <div className={classes.BoxTotalPrice}>
             <span className={classes.TotalPrice}>
               {Helper.toCurrencyFormat(totalPrice)}

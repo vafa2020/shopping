@@ -95,10 +95,19 @@ const reducer = (state, action) => {
     }
     case "delete": {
       const updateCart = [...state.cart];
-      const deleteProduct = updateCart.filter((p) => p.id !== action.value);
+      if(state.cart.length===1){
+        const deleteProduct = updateCart.filter((p) => p.id !== action.value.id);
+        return {
+          ...state,
+          cart: deleteProduct,
+          totalPrice: 0,
+        };
+      }
+      const deleteProduct = updateCart.filter((p) => p.id !== action.value.id);
       return {
         ...state,
         cart: deleteProduct,
+        totalPrice: state.totalPrice - action.value.price,
       };
     }
     case "sort": {
