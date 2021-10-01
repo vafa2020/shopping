@@ -30,7 +30,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         cart: updatedCart,
-        total: state.totalPrice + action.value.price,
+        totalPrice: state.totalPrice + action.value.price,
       };
     }
     case "decrement": {
@@ -46,7 +46,7 @@ const reducer = (state, action) => {
         return {
           ...state,
           cart: filteredCart,
-          total: state.totalPrice - action.value.price,
+          totalPrice: state.totalPrice - action.value.price,
         };
       } else {
         updatedItem.quantity--;
@@ -54,7 +54,7 @@ const reducer = (state, action) => {
         return {
           ...state,
           cart: updatedCart,
-          total: state.total - action.value.price,
+          totalPrice: state.totalPrice - action.value.price,
         };
       }
     }
@@ -69,7 +69,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         cart: updatedCart,
-        total: state.totalPrice + action.value.price,
+        totalPrice: state.totalPrice + action.value.price,
       };
     }
     case "filterCategory": {
@@ -93,10 +93,8 @@ const reducer = (state, action) => {
       };
     }
     case "delete": {
-      const updateCart=[...state.cart]
-      const deleteProduct = updateCart.filter(
-        (p) => p.id !== action.value
-      );
+      const updateCart = [...state.cart];
+      const deleteProduct = updateCart.filter((p) => p.id !== action.value);
       return {
         ...state,
         cart: deleteProduct,
@@ -167,9 +165,8 @@ const reducer = (state, action) => {
 
     default:
       return {
-        ...state,
         cart: [],
-        total: 0,
+        totalPrice: 0,
         products: [...ProductDataList.slice(-6)],
       };
   }

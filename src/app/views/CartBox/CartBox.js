@@ -14,7 +14,7 @@ import { useProduct } from "../../utils/StateManagerProduct";
 export default function CartBox() {
   const dispatch = useProductAction();
   const { cart, totalPrice } = useProduct();
-  console.log(cart, totalPrice);
+ 
   return (
     <BasicLayout>
       <div className={classes.Container}>
@@ -76,9 +76,9 @@ export default function CartBox() {
           ))
         )}
         {totalPrice && (
-          <div className={classes.BoxPrice}>
-            <span className={classes.Price}>{totalPrice}</span>
-            <span className={classes.Text}>totalPrice</span>
+          <div className={classes.BoxTotalPrice}>
+            <span className={classes.TotalPrice}>{Helper.toCurrencyFormat(totalPrice)}</span>
+            <span className={classes.TotalPriceText}>totalPrice</span>
           </div>
         )}
       </div>

@@ -178,6 +178,7 @@
   .BoxTotalPrice{
     display: flex;
     align-items: center;
+    width: 200px;
     .TotalPriceText{
       font-size: 1.2rem;
       border-radius: $dimen-rounded-low;
@@ -186,15 +187,13 @@
       color: $color-green;
       padding: 5px;
       box-shadow: rgba($color-dark, 0.3) 0 5px 15px 0;
-      width: 100px;
+      margin-right: 10px;
     }
     .TotalPrice{
       text-align: center;
       border-radius: $dimen-rounded-low;
       display: inline-block;
       padding: 5px;
-      margin-right: 10px;
-      width: 100px;
       color: lighten($color-red, 10);
       font-size: 1.2rem;
       box-shadow: rgba($color-dark, 0.3) 0 5px 15px 0;
