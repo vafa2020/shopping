@@ -11,11 +11,11 @@ export default function Routing() {
     <StateManagerProduct>
       <Router>
         <Switch>
-          <Route path="/login">
-            <Login />
-          </Route>
           <Route path="/product/:category">
             <Product />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route path="/cartBox">
             <CartBox />
