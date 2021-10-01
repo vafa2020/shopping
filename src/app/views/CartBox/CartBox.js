@@ -11,10 +11,13 @@ import { Link } from "react-router-dom";
 import { Constants } from "../../values/Constants";
 import { useProductAction } from "../../utils/StateManagerProduct";
 import { useProduct } from "../../utils/StateManagerProduct";
+import { useEffect } from "react";
 export default function CartBox() {
   const dispatch = useProductAction();
   const { cart, totalPrice } = useProduct();
- 
+  useEffect(() => {
+    localStorage.setItem("Product", JSON.stringify(cart, totalPrice));
+  }, [cart, totalPrice]);
   return (
     <BasicLayout>
       <div className={classes.Container}>
@@ -48,7 +51,7 @@ export default function CartBox() {
                   <button
                     className={classes.Plus}
                     onClick={() => {
-                      dispatch({ type: "increment", value: item.id });
+                      dispatch({ type: "increment", value: item });
                     }}
                   >
                     <AiOutlinePlus />
@@ -57,7 +60,7 @@ export default function CartBox() {
                   <button
                     className={classes.Mines}
                     onClick={() => {
-                      dispatch({ type: "decrement", value: item.id });
+                      dispatch({ type: "decrement", value: item });
                     }}
                   >
                     <AiOutlineMinus />
@@ -75,9 +78,11 @@ export default function CartBox() {
             </div>
           ))
         )}
-        {totalPrice && (
+        {totalPrice > 0 && (
           <div className={classes.BoxTotalPrice}>
-            <span className={classes.TotalPrice}>{Helper.toCurrencyFormat(totalPrice)}</span>
+            <span className={classes.TotalPrice}>
+              {Helper.toCurrencyFormat(totalPrice)}
+            </span>
             <span className={classes.TotalPriceText}>totalPrice</span>
           </div>
         )}

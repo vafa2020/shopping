@@ -12,6 +12,7 @@ const initialState = {
   totalPrice: 0,
   products: [],
 };
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "addToCart": {
@@ -36,12 +37,12 @@ const reducer = (state, action) => {
     case "decrement": {
       const updatedCart = [...state.cart];
       const updatedItemIndex = updatedCart.findIndex(
-        (item) => item.id === action.value
+        (item) => item.id === action.value.id
       );
       const updatedItem = { ...updatedCart[updatedItemIndex] };
       if (updatedItem.quantity === 1) {
         const filteredCart = updatedCart.filter(
-          (item) => item.id !== action.value
+          (item) => item.id !== action.value.id
         );
         return {
           ...state,
@@ -61,7 +62,7 @@ const reducer = (state, action) => {
     case "increment": {
       const updatedCart = [...state.cart];
       const updatedItemIndex = updatedCart.findIndex(
-        (item) => item.id === action.value
+        (item) => item.id === action.value.id
       );
       const updatedItem = { ...updatedCart[updatedItemIndex] };
       updatedItem.quantity++;
