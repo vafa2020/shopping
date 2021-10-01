@@ -96,9 +96,7 @@ const reducer = (state, action) => {
     case "delete": {
       const updateCart = [...state.cart];
       if (state.cart.length === 1) {
-        const removeCart = updateCart.filter(
-          (p) => p.id !== action.value.id
-        );
+        const removeCart = updateCart.filter((p) => p.id !== action.value.id);
         return {
           ...state,
           cart: removeCart,
@@ -113,23 +111,23 @@ const reducer = (state, action) => {
       };
     }
     case "sort": {
-      let priceProduct = [...state.products];
+      let updateProduct = [...state.products];
       if (!action.sort) {
         return {
           ...state,
-          products: state.products,
+          products: updateProduct,
         };
       } else if (action.sort === "asc") {
-        priceProduct = _.orderBy(state.products, ["price"], ["desc"]);
+        updateProduct = _.orderBy(state.products, ["price"], ["desc"]);
         return {
           ...state,
-          products: priceProduct,
+          products: updateProduct,
         };
       }
-      priceProduct = _.orderBy(state.products, ["price"], ["asc"]);
+      updateProduct = _.orderBy(state.products, ["price"], ["asc"]);
       return {
         ...state,
-        products: priceProduct,
+        products: updateProduct,
       };
     }
     case "filterColor": {
@@ -140,7 +138,7 @@ const reducer = (state, action) => {
           products: cloneProduct,
         };
       }
-      const filteredColor = cloneProduct.filter(
+      const filteredColor = state.products.filter(
         (p) => p.color === action.color
       );
       return {

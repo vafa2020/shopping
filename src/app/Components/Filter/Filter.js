@@ -11,23 +11,23 @@ export default function Filter({ setFilter, filter }) {
   const [modelValue, setModelValue] = useState("");
   const [rangPriceValue, setRangPriceValue] = useState(200000);
   const sortHandler = (event) => {
-    dispatch({ type: "filterCategory", category });
+    dispatch({ type: "filterCategory", value: category });
     dispatch({ type: "sort", sort: event.target.value });
     setSortValue(event.target.value);
   };
   const colorHandler = (event) => {
-    dispatch({ type: "filterCategory", category });
+    dispatch({ type: "filterCategory", value: category });
     dispatch({ type: "filterColor", color: event.target.value });
     setColorValue(event.target.value);
   };
 
   const modelHandler = (event) => {
-    dispatch({ type: "filterCategory", category });
+    dispatch({ type: "filterCategory", value: category });
     dispatch({ type: "filterModel", model: event.target.value });
     setModelValue(event.target.value);
   };
   const rangPriceHandler = (event) => {
-    dispatch({ type: "filterCategory", category });
+    dispatch({ type: "filterCategory", value: category });
     dispatch({ type: "filterRangPrice", rangPrice: event.target.value });
     setRangPriceValue(event.target.value);
   };
