@@ -128,7 +128,7 @@ export default function FilterDesktop() {
             </div>
           </div>
         </div>
-      </div>{" "}
+      </div>
     </div>
   );
 }
