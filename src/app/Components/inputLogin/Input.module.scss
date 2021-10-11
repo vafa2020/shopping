@@ -1,0 +1,32 @@
+@import "src/app/static/style/basic";
+
+.feild {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .input {
+    width: 300px;
+    padding: 10px 10px;
+    text-align: left;
+    margin: 5px 0;
+    border: none;
+    box-shadow: rgba(0,0,0,0.5) 0 5px 15px 0;
+    border-radius: $dimen-rounded-low;
+    background-color: transparent;
+  }
+  .label {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+.errors {
+  width: 300px;
+  display: flex;
+  justify-content: left;
+  color: red;
+  font-weight: bold;
+  text-align: justify;
+  font-size: 15px;
+}

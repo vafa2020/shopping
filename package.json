@@ -25,7 +25,8 @@
     "react-scripts": "4.0.3",
     "react-toastify": "^7.0.4",
     "scriptpack": "^1.2.3",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "yup": "^0.32.10"
   },
   "scripts": {
     "start": "react-scripts start",
