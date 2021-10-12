@@ -2,14 +2,17 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import Input from "../../Components/inputLogin/Input";
 import classes from "./Login.module.scss";
-import { object } from "yup/lib/locale";
+import { Redirect } from "react-router";
+import { useHistory } from "react-router";
+const initialValues = {
+  email: "",
+  password: "",
+};
 const Login = () => {
-  const initialValues = {
-    email: "",
-    password: "",
-  };
+  const history = useHistory();
   const onSubmit = (values) => {
-    console.log(values);
+    localStorage.setItem("login", JSON.stringify(values));
+    history.push("/product");
   };
   const validationSchema = yup.object({
     email: yup.string().email("email is invalid").required("email is required"),
@@ -41,7 +44,13 @@ const Login = () => {
             label="password"
             formik={formik}
           />
-          <button type="submit" className={classes.button} disabled={!formik.isValid}>Login</button>
+          <button
+            type="submit"
+            className={classes.button}
+            disabled={!formik.isValid}
+          >
+            Login
+          </button>
         </form>
       </div>
     </div>
