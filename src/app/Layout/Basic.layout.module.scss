@@ -1,5 +1,8 @@
 @import "src/app/static/style/basic";
 
 .BasicLayout {
-  background-color:lighten($color-grey,15);
+  background-color: lighten($color-grey, 15);
+}
+.Container {
+  margin-top: 52px;
 }
