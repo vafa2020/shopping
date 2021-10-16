@@ -3,7 +3,7 @@
 .Items {
   display: flex;
   justify-content: center;
-
+  padding-right: 0;
   @media only screen and (max-width: 992px) {
     flex-direction: column;
     align-items: center;
@@ -18,27 +18,87 @@
   }
 
   .Item {
+    position: relative;
     transition: 1s ease;
     list-style: none;
     padding: 10px;
-    margin-left: 5px;
-   
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 10px;
     &:hover {
-      background-color: lighten($color-primary, 20);
+      background-color: lighten($color-primary, 10);
       border-radius: $dimen-rounded-low;
       color: #fff;
+      transition: 1s ease;
+      .subNavigation {
+        opacity: 1;
+        visibility: visible;
+      }
     }
     .Link {
       font-size: 1.2rem;
       color: $color-primary;
       text-decoration: none;
-      &:hover{
+      &:hover {
         color: #fff;
       }
       @media only screen and (max-width: 992px) {
         color: $color-light;
       }
+    }
+    .subNavigation {
+      position: absolute;
+      top: 48px;
+      left: -11px;
+      width: 100px;
+      border: 1px solid white;
+      background-color: #ccc;
+      border-radius: 0 0 5px 5px;
+      opacity: 0;
+      visibility: hidden;
+      opacity: none;
 
+      .subItems {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        cursor: pointer;
+        @media only screen and (max-width: 992px) {
+          flex-direction: column;
+          align-items: center;
+          position: absolute;
+          width: 100%;
+          background-color: $color-primary;
+          top: 41px;
+          right: 0;
+          padding: 0;
+          border-top: 3px solid $color-yellow;
+          z-index: 2;
+        }
+        .subItem {
+          transition: 1s linear;
+          padding: 10px 0;
+          list-style: none;
+          width: 100px;
+          text-align: center;
+          &:hover {
+            background-color: $color-light;
+            border-radius: $dimen-rounded-low;
+            
+          }
+          .subLink {
+            font-size: 1.2rem;
+            color: $color-dark;
+            text-decoration: none;
+
+            @media only screen and (max-width: 992px) {
+              color: $color-light;
+            }
+          }
+        }
+      }
     }
   }
 }
