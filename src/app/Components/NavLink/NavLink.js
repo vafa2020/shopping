@@ -18,7 +18,7 @@ export default function NavLink() {
       </li>
       <li className={classes.Item}>
         <Link to="/product" className={classes.Link}>
-          {Constants.Product}
+          <span>{Constants.Product}</span>
         </Link>
         <div className={classes.subNavigation}>
           <ul className={classes.subItems}>
