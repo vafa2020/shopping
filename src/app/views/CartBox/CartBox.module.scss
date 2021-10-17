@@ -1,6 +1,5 @@
 @import "src/app/static/style/basic";
 
-
 .Container {
   display: flex;
   flex-direction: column;
@@ -8,12 +7,11 @@
   background: $color-light;
   box-shadow: rgba($color-dark, 0.3) 0 10px 20px 0;
   border-radius: $dimen-rounded-low;
-  margin: 20px 0;
+  margin-top: 30px;
 
   @media only screen and (max-width: 992px) {
     padding: 10px;
     margin: initial;
-
   }
 
   .Product {
@@ -65,7 +63,6 @@
       }
     }
 
-
     .BoxPrice {
       display: flex;
       align-items: center;
@@ -92,7 +89,6 @@
         box-shadow: rgba($color-dark, 0.3) 0 5px 15px 0;
         width: 70px;
       }
-
     }
 
     .BoxColor {
@@ -137,7 +133,6 @@
         color: $color-green;
         background-color: transparent;
         box-shadow: rgba($color-dark, 0.3) 0 5px 10px 0;
-
       }
 
       .Quantity {
@@ -175,11 +170,11 @@
       font-size: 80px;
     }
   }
-  .BoxTotalPrice{
+  .BoxTotalPrice {
     display: flex;
     align-items: center;
     width: 200px;
-    .TotalPriceText{
+    .TotalPriceText {
       font-size: 1.2rem;
       border-radius: $dimen-rounded-low;
       text-align: center;
@@ -189,7 +184,7 @@
       box-shadow: rgba($color-dark, 0.3) 0 5px 15px 0;
       margin-right: 10px;
     }
-    .TotalPrice{
+    .TotalPrice {
       text-align: center;
       border-radius: $dimen-rounded-low;
       display: inline-block;
@@ -199,5 +194,4 @@
       box-shadow: rgba($color-dark, 0.3) 0 5px 15px 0;
     }
   }
-
 }
