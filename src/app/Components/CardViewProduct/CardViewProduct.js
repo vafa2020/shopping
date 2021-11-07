@@ -9,9 +9,11 @@ export default function CardViewProduct({ ListCardViewProduct }) {
           <img className={classes.Image} src={item.source} alt="" />
           <div className={classes.Description}>
             <h2 className={classes.Title}>{item.title}</h2>
-            <Link to={`/product/${item.category}`}>
-              <button className={classes.Button}>نمایش دیگر محصولات</button>
-            </Link>
+            <nav>
+              <Link to={item.category}>
+                <button className={classes.Button}>نمایش دیگر محصولات</button>
+              </Link>
+            </nav>
           </div>
         </div>
       ))}

@@ -24,7 +24,7 @@ export default function CartBox() {
         {cart.length ? (
           cart.map((item) => (
             <div key={item.id} className={classes.Product}>
-              <Link to={`/productDetails/${item.id}`}>
+              <Link to="/product">
                 <img className={classes.Image} src={item.source} alt="" />
               </Link>
               <div className={classes.Body}>

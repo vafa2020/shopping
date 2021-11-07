@@ -1,8 +1,9 @@
 @import "src/app/static/style/basic";
 
 .BasicLayout {
-  background-color: lighten($color-grey, 15);
+  padding-top: 10px;
+  background-color: lighten($color-grey, 32);
 }
-.Container {
+.wrapper {
   margin-top: 52px;
 }

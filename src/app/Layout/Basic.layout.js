@@ -3,12 +3,13 @@ import classes from "./Basic.layout.module.scss";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/header/Header";
 
-
 export default function BasicLayout(props) {
   return (
     <div className={classes.BasicLayout}>
       <Header />
-      <div className={`${'container'} ${classes.Container}`}>{props.children}</div>
+      <div className={`${"container"} ${classes.wrapper}`}>
+        {props.children}
+      </div>
       <Footer />
     </div>
   );

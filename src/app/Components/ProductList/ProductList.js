@@ -10,10 +10,10 @@ import { BiHeart, HiOutlineBookmark } from "react-icons/all";
 import { useProductAction } from "../../utils/StateManagerProduct";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 
 export default function ProductList(props) {
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useProductAction();
   const [like, setLike] = useState(false);
   const [bookmark, setBookmark] = useState(false);
@@ -21,7 +21,7 @@ export default function ProductList(props) {
   const addToCart = () => {
     const isLogin = localStorage.getItem("login");
     if (isLogin === null) {
-      history.push("/login");
+      navigate("/login");
     }
     dispatch({ type: "addToCart", value: props.data });
     toast.success(".کالای شما به سبد خرید افزوده شد");
